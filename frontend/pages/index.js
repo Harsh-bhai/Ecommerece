@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <div>
       Hello this is testing phase
+      Our members are 
     </div>
   )
 }
