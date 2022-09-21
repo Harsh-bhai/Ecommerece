@@ -7,6 +7,8 @@ export default function Home() {
       Hello this is testing phase
       Our members are harsh pankaj utkarsh and shubham
       we will start our project soon
+      how we do that?
+      
     </div>
   )
 }
