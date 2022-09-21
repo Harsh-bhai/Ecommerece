@@ -6,6 +6,7 @@ export default function Home() {
     <div>
       Hello this is testing phase
       Our members are harsh pankaj utkarsh and shubham
+      we will start our project soon
     </div>
   )
 }
