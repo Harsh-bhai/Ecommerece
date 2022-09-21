@@ -9,6 +9,7 @@ export default function Home() {
       we will start our project soon
       how we do that?
       lets find it out!!!
+      And Here We GO!
     </div>
   )
 }
