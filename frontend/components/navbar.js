@@ -59,7 +59,7 @@ const Navbar = () => {
         {login ? <div className=" z-20 account absolute top-1  md:top-[-5px] right-0 text-4xl p-6 cursor-pointer ">
           <MdAccountCircle />
         </div> : <button className=" text-white bg-green-600 mx-8  py-2 px-6 focus:outline-none hover:bg-green-700 rounded-full text-lg">Login</button>}
-        <AiOutlineShoppingCart className='text-3xl  cursor-pointer'/>
+        <Link href={"/cart"}><AiOutlineShoppingCart className='text-3xl  cursor-pointer'/></Link>
         </div>
       </div>
       </div>
