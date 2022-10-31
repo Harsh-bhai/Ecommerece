@@ -4,7 +4,8 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "Product"
+    "displayName": "Product",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,47 @@
   "attributes": {
     "name": {
       "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "slug": {
+      "type": "uid",
+      "minLength": 3,
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Fruits",
+        "Vegetables",
+        "Groceries",
+        "Potteries",
+        "Daily needs"
+      ],
+      "required": true,
+      "default": "Groceries"
+    },
+    "size": {
+      "type": "string",
+      "maxLength": 70
+    },
+    "price": {
+      "type": "integer",
+      "default": 0
     }
   }
 }
