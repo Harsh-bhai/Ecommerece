@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Product = () => {
+const Potteries = () => {
   return (
     <div><section className="text-gray-600 body-font">
     <div className="container px-5 py-24 mx-auto">
@@ -91,4 +91,4 @@ const Product = () => {
   )
 }
 
-export default Product
+export default Potteries
