@@ -4,7 +4,16 @@ const Slug = () => {
   const router = useRouter()
   const { slug } = router.query
 
-  return <p>Slug: {slug}</p>
+  return <>
+    
+    <div className="flex">
+      yaha likhna
+      
+    </div>
+    
+    
+    
+    </>
 }
 
 export default Slug
