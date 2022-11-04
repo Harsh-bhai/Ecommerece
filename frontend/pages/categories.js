@@ -1,9 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 
-const Categories = () => {
+const Categories = ({products}) => {
   return (
-    <div><section className="text-gray-600 body-font">
+    <div><section className="text-gray-600 body-font">  
     <div className="container px-5 py-24 mx-auto">
       <div className="flex flex-col">
         <div className="h-1 bg-gray-200 rounded overflow-hidden">
@@ -15,34 +15,38 @@ const Categories = () => {
         </div>
       </div>
       <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-        <Link href={"/product"}><div className="p-4 md:w-1/3 sm:mb-0 mb-6 cursor-pointer">
+        {products.data.map((item)=>{
+          return(
+            <Link key={item} href={"/productgrid"}><div className="p-4 md:w-1/3 sm:mb-0 mb-6 cursor-pointer">
           <div className="rounded-lg h-64 overflow-hidden">
-            <img alt="content" className="object-cover object-center h-full w-full" src="https://dummyimage.com/1203x503"/>
+            <img alt="content" className="object-cover object-center h-full w-full" src={ item.attributes.image.data && item.attributes.image.data.attributes.name}/>
           </div>
-          <h2 className="text-xl font-medium title-font text-gray-900 mt-5">Shooting Stars</h2>
-          <p className="text-base leading-relaxed mt-2">Swag shoivdigoitch literally meditation subway tile tumblr cold-pressed. Gastropub street art beard dreamcatcher neutra, ethical XOXO lumbersexual.</p>
+          <h2 className="text-xl font-medium title-font text-gray-900 mt-5">{item.attributes.title}</h2>
+          <p className="text-base leading-relaxed mt-2">{item.attributes.description}</p>
           
         </div></Link>
-        <Link href={"/product"}><div className="p-4 md:w-1/3 sm:mb-0 mb-6 cursor-pointer">
-          <div className="rounded-lg h-64 overflow-hidden">
-            <img alt="content" className="object-cover object-center h-full w-full" src="https://dummyimage.com/1204x504"/>
-          </div>
-          <h2 className="text-xl font-medium title-font text-gray-900 mt-5">The Catalyzer</h2>
-          <p className="text-base leading-relaxed mt-2">Swag shoivdigoitch literally meditation subway tile tumblr cold-pressed. Gastropub street art beard dreamcatcher neutra, ethical XOXO lumbersexual.</p>
-          
-        </div></Link>
-        <Link href={"/product"}><div className="p-4 md:w-1/3 sm:mb-0 mb-6 cursor-pointer">
-          <div className="rounded-lg h-64 overflow-hidden">
-            <img alt="content" className="object-cover object-center h-full w-full" src="https://dummyimage.com/1205x505"/>
-          </div>
-          <h2 className="text-xl font-medium title-font text-gray-900 mt-5">The 400 Blows</h2>
-          <p className="text-base leading-relaxed mt-2">Swag shoivdigoitch literally meditation subway tile tumblr cold-pressed. Gastropub street art beard dreamcatcher neutra, ethical XOXO lumbersexual.</p>
-          
-        </div></Link>
+          )
+
+        })}
+
       </div>
     </div>
   </section></div>
   )
 }
 
+
+
 export default Categories
+
+
+export async function getServerSideProps(context) {
+  let headers={Authorization:process.env.getproductstoken}
+  let a=await fetch('http://localhost:1337/api/categories-infos?populate=*',{headers:headers})
+  let products=await a.json()
+  console.log(products,"<products></products>")
+
+  return {
+    props: {products}, // will be passed to the page component as props
+  }
+}
