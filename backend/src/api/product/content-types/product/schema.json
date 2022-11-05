@@ -29,12 +29,12 @@
       "type": "text"
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": false
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "category": {
       "type": "enumeration",
@@ -43,7 +43,8 @@
         "Vegetables",
         "Groceries",
         "Potteries",
-        "Daily needs"
+        "Daily needs",
+        "Dairy"
       ],
       "required": true,
       "default": "Groceries"
