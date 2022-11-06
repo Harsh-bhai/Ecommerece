@@ -27,7 +27,7 @@
         "images"
       ]
     },
-    "url": {
+    "pageurl": {
       "type": "string"
     }
   }
