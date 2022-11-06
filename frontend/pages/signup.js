@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
-
-const Login = () => {
+const Signup = () => {
   return (
     <div>
       <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -11,16 +10,16 @@ const Login = () => {
               <img src="/vmartgreen.png" className=" h-28 " alt="" />
             </div>
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-              Log in to your account
+              Sign in to your account
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               Or
-              <Link href={"/signup"}><a
+              <Link href={"/login"}><a
                 href="#"
                 className="font-medium text-green-600 hover:text-green-500"
               >
                 {" "}
-                Create New Account
+                Log In
               </a></Link>
             </p>
           </div>
@@ -113,12 +112,4 @@ const Login = () => {
   );
 };
 
-export default Login;
-
-
-export async function getServerSideProps(context) {
-
-  return {
-    props: {}, // will be passed to the page component as props
-  }
-}
+export default Signup;
