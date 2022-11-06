@@ -7,7 +7,9 @@ const Seller = () => {
     <section className="bg-gray-30">
       <div
         className="border-2 border-black w-full h-full p-1 rounded-md m-2 bg-blend-darken text-gray-600 text-center text-3xl">
+
         <img className="lg:h-60 md:h-36 w-full " src="https://anuna.com/images/NewFolder/Become%20A%20Seller%20-%20Anuna.png?1604649915954" alt="blog"/>
+
       </div>
     </section>
   

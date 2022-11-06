@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const Fruits = ({products}) => {
+const Pottery = ({products}) => {
   console.log(products.data, "hre");
   return (
     <div>
@@ -42,11 +42,11 @@ const Fruits = ({products}) => {
   );
 };
 
-export default Fruits;
+export default Pottery;
 
 export async function getServerSideProps(context) {
   let headers = { Authorization: process.env.getproductstoken };
-  let a = await fetch("http://localhost:1337/api/products?category=fruits&populate=*", {
+  let a = await fetch("http://localhost:1337/api/products?category=pottery&populate=*", {
     headers: headers,
   });
   let products = await a.json();
