@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string"
-    },
     "title": {
       "type": "string",
       "required": true,
@@ -55,6 +52,15 @@
     },
     "price": {
       "type": "integer",
+      "default": 0
+    },
+    "ogprice": {
+      "type": "integer",
+      "required": true
+    },
+    "availableqty": {
+      "type": "integer",
+      "required": true,
       "default": 0
     }
   }
