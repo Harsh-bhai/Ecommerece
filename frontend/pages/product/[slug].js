@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 const Slug = () => {
@@ -8,7 +9,7 @@ const Slug = () => {
 
 <section className="text-gray-600 body-font overflow-hidden">
         <div className="container px-5 py-24 mx-auto">
-
+{}
             <div className=" mx-auto flex flex-wrap">
                 <div className='flex justify-center items-start md:w-1/2'  ><img alt="ecommerce" className="rounded"
                     src="https://www.bigbasket.com/media/uploads/p/l/40033819-2_6-fresho-apple-shimla.jpg"/></div>
@@ -51,8 +52,8 @@ const Slug = () => {
 
                         <div className='mb-20'>
                             <div className="flex space-x-5 mt-10 ">
-                                <button
-                                    className="flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded-full ">Buy Now</button>
+                                <Link href={'/cart'}><button
+                                    className="flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded-full ">Buy Now</button></Link>
 
                                 <button
                                     className="flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded-full">Add
@@ -106,3 +107,4 @@ const Slug = () => {
 }
 
 export default Slug
+
