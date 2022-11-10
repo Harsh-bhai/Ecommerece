@@ -12,9 +12,10 @@ const Fruits = ({products}) => {
               return (
                 <Link
                   key={item.attributes.slug}
-                  href={`${process.env.baselink}/products/${item.attributes.slug}`}
+                  // href={`${process.env.baselink}/product/${item.attributes.slug}`}
+                  href={`${process.env.baselink}/product/apple`}
                 > 
-                  <div className="lg:w-1/4 md:w-1/2 p-4 w-full border rounded-lg flex flex-col items-center">
+                  <div className="lg:w-1/4 md:w-1/2 p-4 w-full border rounded-lg flex flex-col items-center shadow-lg cursor-pointer">
                     
                     <a className="block relative h-48 rounded overflow-hidden">
                       <img
@@ -30,7 +31,7 @@ const Fruits = ({products}) => {
                       <h2 className="text-gray-900 title-font text-lg font-medium">
                         {item.attributes.title}
                       </h2>
-                      <p className="mt-1">{item.attributes.price}</p>
+                      <p className="mt-1">₹{item.attributes.price}</p>
                     </div>
                   </div>
                 </Link>

@@ -29,7 +29,7 @@ const Pottery = ({products}) => {
                       <h2 className="text-gray-900 title-font text-lg font-medium">
                         {item.attributes.title}
                       </h2>
-                      <p className="mt-1">{item.attributes.price}</p>
+                      <p className="mt-1">₹{item.attributes.price}</p>
                     </div>
                   </div>
                 </Link>
