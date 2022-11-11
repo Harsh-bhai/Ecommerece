@@ -19,12 +19,12 @@ const Cart = () => {
         <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
           <div className="flex w-2/5"> 
             <div className="w-20">
-              <img className="h-24" src="https://drive.google.com/uc?id=18KkAVkGFvaGNqPy2DIvTqmUH_nk39o3z" alt=""/>
+              <img className="h-24" src="https://media.istockphoto.com/id/184276818/photo/red-apple.jpg?s=612x612&w=0&k=20&c=NvO-bLsG0DJ_7Ii8SSVoKLurzjmV0Qi4eGfn6nW3l5w=" alt=""/>
             </div>
             <div className="flex flex-col justify-between ml-4 flex-grow">
-              <span className="font-bold text-sm">Iphone 6S</span>
-              <span className="text-red-500 text-xs">Apple</span>
-              <a href="#" className="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+              <span className="font-bold text-sm">Apple</span>
+              <span className="text-green-500 text-xs">Kashmiri</span>
+              <a href="#" className="font-semibold hover:text-green-500 text-gray-500 text-xs">Remove</a>
             </div>
           </div>
           <div className="flex justify-center w-1/5">
@@ -37,19 +37,19 @@ const Cart = () => {
               <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
             </svg>
           </div>
-          <span className="text-center w-1/5 font-semibold text-sm">$400.00</span>
+          <span className="text-center w-1/5 font-semibold text-sm">₹40</span>
           
         </div>
 
         <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
           <div className="flex w-2/5"> 
             <div className="w-20">
-              <img className="h-24" src="https://drive.google.com/uc?id=10ht6a9IR3K2i1j0rHofp9-Oubl1Chraw" alt=""/>
+              <img className="h-24" src="https://images.immediate.co.uk/production/volatile/sites/30/2017/01/Bananas-218094b-scaled.jpg" alt=""/>
             </div>
             <div className="flex flex-col justify-between ml-4 flex-grow">
-              <span className="font-bold text-sm">Xiaomi Mi 20000mAh</span>
-              <span className="text-red-500 text-xs">Xiaomi</span>
-              <a href="#" className="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+              <span className="font-bold text-sm">Banana</span>
+              <span className="text-green-500 text-xs">Kashmiri</span>
+              <a href="#" className="font-semibold hover:text-green-500 text-gray-500 text-xs">Remove</a>
             </div>
           </div>
           <div className="flex justify-center w-1/5">
@@ -62,19 +62,19 @@ const Cart = () => {
               <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
             </svg>
           </div>
-          <span className="text-center w-1/5 font-semibold text-sm">$40.00</span>
+          <span className="text-center w-1/5 font-semibold text-sm">₹55</span>
           
         </div>
 
         <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
           <div className="flex w-2/5"> 
             <div className="w-20">
-              <img className="h-24" src="https://drive.google.com/uc?id=1vXhvO9HoljNolvAXLwtw_qX3WNZ0m75v" alt=""/>
+              <img className="h-24" src="https://www.bigbasket.com/media/uploads/p/xxl/20001427_2-fresho-grapes-green-with-seed.jpg" alt=""/>
             </div>
             <div className="flex flex-col justify-between ml-4 flex-grow">
-              <span className="font-bold text-sm">Airpods</span>
-              <span className="text-red-500 text-xs">Apple</span>
-              <a href="#" className="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+              <span className="font-bold text-sm">Grapes</span>
+              <span className="text-green-500 text-xs">Kashmiri</span>
+              <a href="#" className="font-semibold hover:text-green-500 text-gray-500 text-xs">Remove</a>
             </div>
           </div>
           <div className="flex justify-center w-1/5">
@@ -86,11 +86,11 @@ const Cart = () => {
               <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
             </svg>
           </div>
-          <span className="text-center w-1/5 font-semibold text-sm">$150.00</span>
+          <span className="text-center w-1/5 font-semibold text-sm">₹55</span>
           
         </div>
 
-        <Link href={"/"}><a href="#" className="flex font-semibold text-green-600 text-sm mt-10">
+        <Link href={"/categories"}><a href="#" className="flex font-semibold text-green-600 text-sm mt-10">
       
           <svg className="fill-current mr-2 text-green-600 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/></svg>
           Continue Shopping
@@ -101,12 +101,12 @@ const Cart = () => {
         <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
         <div className="flex justify-between mt-10 mb-5">
           <span className="font-semibold text-sm uppercase">Items 3</span>
-          <span className="font-semibold text-sm">590$</span>
+          <span className="font-semibold text-sm">₹100</span>
         </div>
         <div>
           <label className="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
           <select className="block p-2 text-gray-600 w-full text-sm">
-            <option>Standard shipping - $10.00</option>
+            <option>Standard shipping - ₹10.00</option>
           </select>
         </div>
        
@@ -114,7 +114,7 @@ const Cart = () => {
         <div className="border-t mt-8">
           <div className="flex font-semibold justify-between py-6 text-sm uppercase">
             <span>Total cost</span>
-            <span>$600</span>
+            <span>₹150</span>
           </div>
           <button className="bg-green-500 font-semibold hover:bg-green-600 py-3 text-sm text-white uppercase w-full rounded-full">Checkout</button>
         </div>
