@@ -1,6 +1,43 @@
-import React from "react";
+import React,{useState} from "react";
 import Link from "next/link";
+
 const Signup = () => {
+
+  const handlesubmit= async(  ) => {
+    const data = { email,password,phone };
+
+  res=await fetch(`${process.env.baselink}/api/auth/local/register`, {
+  method: 'POST', // or 'PUT'
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(data),
+
+})
+let response=await res.json()
+console.log(response)
+setemail('')
+setpassword('')
+setphone('')
+  }
+
+  const handlechange= ( e ) => {
+    console.log(e)
+    if (e.target.name="password"){
+      setpassword(e.target.value)
+    }
+    else if (e.target.name="email"){
+      setemail(e.target.value)
+    }
+    else if (e.target.name="phone"){
+      setphone(e.target.value)
+    }
+  
+  }
+
+  const [email, setemail] = useState()
+  const [password, setpassword] = useState()
+  const [phone, setphone] = useState()
   return (
     <div>
       <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -10,7 +47,7 @@ const Signup = () => {
               <img src="/vmartgreen.png" className=" h-28 " alt="" />
             </div>
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-              Sign in to your account
+              Create a new account
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               Or
@@ -23,20 +60,20 @@ const Signup = () => {
               </a></Link>
             </p>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
-            <input type="hidden" name="remember" value="true" />
+          <form className="mt-8 space-y-6"  method="POST">
+            <input type="hidden" name="email" onChange={handlechange} onSubmit={handlesubmit} value={email} />
             <div className="-space-y-px rounded-md shadow-sm">
               <div>
-                <label htmlFor="email-address" className="sr-only">
+                <label htmlFor="email" className="sr-only">
                   Email address
                 </label>
-                <input
-                  id="email-address"
+                <input onChange={handlechange} onSubmit={handlesubmit} value={email}
+                  id="email"
                   name="email"
                   type="email"
-                  autocomplete="email"
+                  autoComplete="email"
                   required
-                  className="relative block w-full  appearance-none rounded-none rounded-t-md border border-gray-300 p-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
+                  className="relative block w-full  appearance-none rounded-md rounded-t-md border border-gray-300 p-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
                   placeholder="Email address"
                 />
               </div>
@@ -44,41 +81,44 @@ const Signup = () => {
                 <label htmlFor="password" className="sr-only">
                   Password
                 </label>
-                <input
+                <input onChange={handlechange} onSubmit={handlesubmit} value={password}
+                
                   id="password"
                   name="password"
                   type="password"
-                  autocomplete="current-password"
+                  autoComplete="current-password"
                   required
-                  className="relative block w-full  appearance-none rounded-none rounded-b-md border border-gray-300 p-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
+                  className="relative block w-full  appearance-none rounded-md rounded-b-md border border-gray-300 p-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
                   placeholder="Password"
+                />
+              </div>
+              <div>
+                <label htmlFor="phone" className="sr-only">
+                  Phone Number
+                </label>
+                <input onChange={handlechange} onSubmit={handlesubmit} value={phone}
+                
+                  id="phone"
+                  name="phone"
+                  type="phone"
+                  autoComplete="current-phone"
+                  required
+                  className="relative block w-full  appearance-none rounded-md rounded-b-md border border-gray-300 p-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
+                  placeholder="Phone Number"
                 />
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 text-green-600 focus:ring-green-500"
-                />
-                <label
-                  htmlFor="remember-me"
-                  className="ml-2 block text-sm text-gray-900"
-                >
-                  Remember me
-                </label>
-              </div>
+            <div className="flex items-center justify-center">
+              
 
               <div className="text-sm">
-                <a
+              <Link href={'/forgot'}><a
                   href="#"
                   className="font-medium text-green-600 hover:text-green-500"
                 >
                   Forgot your password?
-                </a>
+                </a></Link>
               </div>
             </div>
 
@@ -96,9 +136,9 @@ const Signup = () => {
                     aria-hidden="true"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     />
                   </svg>
                 </span>
