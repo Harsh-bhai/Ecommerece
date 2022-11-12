@@ -3,24 +3,10 @@ import Link from "next/link";
 
 
 
-const Login = () => {
+const Forgot = () => {
 
-  const [password, setpassword] = useState()
   const [email, setemail] = useState()
 
-  const handlesubmit= (  ) => {
-    
-  }
-
-  const handlechange= ( e ) => {
-    if (e.target.name="name"){
-      setname(e.target.value)
-    }
-    else if (e.target.name="email"){
-      setemail(e.target.value)
-    }
-  
-  }
 
 
 
@@ -47,13 +33,13 @@ const Login = () => {
             </p>
           </div>
           <form className="mt-8 space-y-6" action="#" method="POST">
-            <input type="hidden" name="email" onChange={handlechange} onSubmit={handlesubmit} value={email} />
+            <input type="hidden" name="email" value="true" />
             <div className="-space-y-px rounded-md shadow-sm">
               <div>
                 <label htmlFor="email" className="sr-only">
                   Email address
                 </label>
-                <input onChange={handlechange} onSubmit={handlesubmit} value={email}
+                <input
                   id="email"
                   name="email"
                   type="email"
@@ -63,35 +49,9 @@ const Login = () => {
                   placeholder="Email address"
                 />
               </div>
-              <div>
-                <label htmlFor="password" className="sr-only">
-                  Password
-                </label>
-                <input onChange={handlechange} onSubmit={handlesubmit} value={password}
-                
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  required
-                  className="relative block w-full  appearance-none rounded-md rounded-b-md border border-gray-300 p-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
-                  placeholder="Password"
-                />
-              </div>
+             
             </div>
 
-            <div className="flex items-center justify-center">
-              
-
-              <div className="text-sm">
-              <Link href={'/forgot'}><a
-                  href="#"
-                  className="font-medium text-green-600 hover:text-green-500"
-                >
-                  Forgot your password?
-                </a></Link>
-              </div>
-            </div>
 
             <div>
               <button
@@ -107,13 +67,13 @@ const Login = () => {
                     aria-hidden="true"
                   >
                     <path
-                      fillRule="evenodd"
+                      fill-rule="evenodd"
                       d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
-                      clipRule="evenodd"
+                      clip-rule="evenodd"
                     />
                   </svg>
                 </span>
-                Sign in
+                Submit
               </button>
             </div>
           </form>
@@ -123,7 +83,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Forgot;
 
 
 export async function getServerSideProps(context) {
