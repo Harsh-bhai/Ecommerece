@@ -12,7 +12,7 @@ const Groceries = ({products}) => {
               return (
                 <Link
                   key={item.attributes.slug}
-                  href={`${process.env.baselink}/products/${item.attributes.slug}`}
+                  href={`${process.env.NEXT_PUBLIC_HOST}/products/${item.attributes.slug}`}
                 >
                   <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
                     <a className="block relative h-48 rounded overflow-hidden">

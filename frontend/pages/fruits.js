@@ -12,7 +12,7 @@ const Fruits = ({products}) => {
               return (
                 <Link
                   key={item.attributes.slug}
-                  // href={`${process.env.baselink}/product/${item.attributes.slug}`}
+                  // href={`${process.env.NEXT_PUBLIC_HOST}/product/${item.attributes.slug}`}
                   href={`http://localhost:3000/product/apple`}
                 > 
                   <div className="lg:w-1/4 md:w-1/2 p-4 w-full border rounded-lg flex flex-col items-center shadow-lg cursor-pointer">
