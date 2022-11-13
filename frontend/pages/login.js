@@ -1,118 +1,110 @@
-import React,{ useState } from "react";
-import Link from "next/link";
+import React from 'react'
+import Link from "next/link"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useState,useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 
 
-const Login = () => {
+const Signup = () => {
+  let Router=useRouter()
+  // useEffect(() => {
+  //   if(localStorage.getItem("token")){
+  //     Router.push("/")
+  //   }
+  
+  // }, [])
+ 
+  const [username, setusername] = useState('')
+  const [email, setemail] = useState('')
+  const [password, setpassword] = useState('')
 
-  const [password, setpassword] = useState()
-  const [email, setemail] = useState()
-
-  const handlesubmit= (  ) => {
-    
-  }
 
   const handlechange= ( e ) => {
-    if (e.target.name="name"){
-      setname(e.target.value)
+    if(e.target.name=="name"){
+      setusername(e.target.value)
     }
-    else if (e.target.name="email"){
+    if(e.target.name=="email"){
       setemail(e.target.value)
     }
-  
+    if(e.target.name=="password"){
+      setpassword(e.target.value)
+    }
+    
   }
+  
+  const handlesubmit = async (e) => {
+    e.preventDefault()
+    const data = { username, email, password }
+   
 
+   let res= await  fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/local`, {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+        "Accept":"application/json"
+      },
+      body: JSON.stringify(data),
+    })
+  let response =await res.json()
+  console.log("hehe")
+  console.log(response)
+    setemail("")
+    setpassword("")
+    setusername("")
+    toast.success('Logged In Successfully', {
+      position: "top-left",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+      Router.push("/")
+      
 
-
+  }
   return (
     <div>
-      <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-md space-y-8">
+      <ToastContainer
+position="top-left"
+autoClose={1000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
+
+      <div className="min-h-fgreen-700ull flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md w-full space-y-8">
           <div>
-            <div className="flex justify-center items-center py-8 ">
-              <img src="/vmartgreen.png" className=" h-28 " alt="" />
-            </div>
-            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-              Log in to your account
-            </h2>
-            <p className="mt-2 text-center text-sm text-gray-600">
-              Or
-              <Link href={"/signup"}><a
-                href="#"
-                className="font-medium text-green-600 hover:text-green-500"
-              >
-                {" "}
-                Create New Account
-              </a></Link>
-            </p>
+            <img className="mx-auto h-24 w-auto" src="/vmartgreen.png" alt="Workflow" />
+            <h2 className="mt-6 text-center text-2xl font-bold text-gray-900 my-4">Login to your Account</h2>
+            <p className="mt-2 text-center text-sm text-gray-600">Or
+              <Link href={"/signup"}><a href="#" className="font-medium text-green-700 hover:text-green-700"> Create New Account </a></Link></p>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
-            <input type="hidden" name="email" onChange={handlechange} onSubmit={handlesubmit} value={email} />
-            <div className="-space-y-px rounded-md shadow-sm">
-              <div>
-                <label htmlFor="email" className="sr-only">
-                  Email address
-                </label>
-                <input onChange={handlechange} onSubmit={handlesubmit} value={email}
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="relative block w-full  appearance-none rounded-md rounded-t-md border border-gray-300 p-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
-                  placeholder="Email address"
-                />
-              </div>
-              <div>
-                <label htmlFor="password" className="sr-only">
-                  Password
-                </label>
-                <input onChange={handlechange} onSubmit={handlesubmit} value={password}
-                
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  required
-                  className="relative block w-full  appearance-none rounded-md rounded-b-md border border-gray-300 p-3 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
-                  placeholder="Password"
-                />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center">
-              
-
-              <div className="text-sm">
-              <Link href={'/forgot'}><a
-                  href="#"
-                  className="font-medium text-green-600 hover:text-green-500"
-                >
-                  Forgot your password?
-                </a></Link>
-              </div>
-            </div>
-
+          <form onSubmit={handlesubmit} className=" space-y-4" method="POST">
+            
             <div>
-              <button
-                type="submit"
-                className="group relative flex w-full justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-              >
-                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                  <svg
-                    className="h-5 w-5 text-green-500 group-hover:text-green-400"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
+              <label htmlFor="email"  className="sr-only">Email address</label>
+              <input value={email} onChange={handlechange} id="email" name="email" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-700 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-700 focus:border-green-700 focus:z-10 sm:text-sm" placeholder="Email address" />
+            </div>
+            <div>
+              <label htmlFor="password" className="sr-only">Password</label>
+              <input value={password} onChange={handlechange} id="password" name="password" type="password" autoComplete="current-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-700 text-gray-900 rounded-b-md focus:outline-none focus:ring-green-700 focus:border-green-700 focus:z-10 sm:text-sm" placeholder="Password" />
+            </div>
+
+            {/* <div className="text-sm">
+                <Link href={"/forgot"}><a className="font-medium text-green-600 hover:text-green-700 ml-72"> Forgot your password? </a></Link>
+              </div> */}
+            <div>
+              <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-700 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700">
+              
                 Sign in
               </button>
             </div>
@@ -120,15 +112,7 @@ const Login = () => {
         </div>
       </div>
     </div>
-  );
-};
-
-export default Login;
-
-
-export async function getServerSideProps(context) {
-
-  return {
-    props: {}, // will be passed to the page component as props
-  }
+  )
 }
+
+export default Signup
