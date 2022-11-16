@@ -9,7 +9,9 @@ import { AiFillCloseCircle ,AiOutlineShoppingCart} from 'react-icons/ai';
 
 import Link from 'next/link';
 const Navbar = () => {
+  //add login paramerter here
   const [login, setlogin] = useState(false)
+  
   const toggle = () => {
     if ((ref.current.classList.contains("-translate-x-full"))) {
       ref.current.classList.remove("-translate-x-full")
