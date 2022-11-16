@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-const Slug = () => {
+const Slug = ({product}) => {
   const router = useRouter()
   const { slug } = router.query
 
@@ -9,19 +9,16 @@ const Slug = () => {
 
 <section className="text-gray-600 body-font overflow-hidden">
         <div className="container px-5 py-24 mx-auto">
-{}
+
             <div className=" mx-auto flex flex-wrap">
                 <div className='flex justify-center items-start md:w-1/2'  ><img alt="ecommerce" className="rounded"
-                    src="https://www.bigbasket.com/media/uploads/p/l/40033819-2_6-fresho-apple-shimla.jpg"/></div>
+                    src={product.attributes.image.data.attributes.name}/></div>
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                     <h2 className="text-sm title-font text-gray-500 tracking-widest">BRAND NAME</h2>
-                    <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">Apple</h1>
+                    <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{product.attributes.title}</h1>
 
                     
-                    <p className="leading-relaxed">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha
-                        taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage
-                        brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle
-                        pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.</p>
+                    <p className="leading-relaxed">{product.attributes.description}</p>
                     <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
                         <div className="flex items-center">
                             <span className="mr-3">Qunatity</span>
@@ -29,10 +26,8 @@ const Slug = () => {
                                 <select
                                     className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base pl-3 pr-10">
 
-                                    <option>250g</option>
-                                    <option>500g</option>
-                                    <option>1kg</option>
-                                    <option>2kg </option>
+                                    <option>{product.attributes.size}</option>
+                                    
 
                                 </select>
                                 <span
@@ -47,7 +42,7 @@ const Slug = () => {
                     </div>
                     <div className="space-y-4 mb-20">
 
-                        <span className="title-font font-semibold text-gray-900 text-4xl ">₹40</span>
+                        <span className="title-font font-semibold text-gray-900 text-4xl ">₹{product.attributes.price}</span>
 
 
                         <div className='mb-20'>
@@ -108,3 +103,14 @@ const Slug = () => {
 
 export default Slug
 
+export async function getServerSideProps(context) {
+    let headers = { Authorization: process.env.getproductstoken };
+    let a = await fetch("http://localhost:1337/api/products?filters[slug]="+context.query.slug+"&populate=*", {
+      headers: headers,
+    });
+    let product = await a.json();
+    
+    return {
+      props: { product:product.data[0] }, // will be passed to the page component as props
+    };
+  }
