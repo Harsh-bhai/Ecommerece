@@ -19,6 +19,7 @@ const Signup = () => {
   const [username, setusername] = useState('')
   const [email, setemail] = useState('')
   const [password, setpassword] = useState('')
+  const [login, setlogin] = useState(false)
 
 
   const handlechange= ( e ) => {
@@ -53,6 +54,7 @@ const Signup = () => {
     setemail("")
     setpassword("")
     setusername("")
+    setlogin(true)
     toast.success('Logged In Successfully', {
       position: "top-left",
       autoClose: 1000,
