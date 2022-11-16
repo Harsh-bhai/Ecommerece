@@ -12,8 +12,8 @@ const Fruits = ({products}) => {
               return (
                 <Link
                   key={item.attributes.slug}
-                  // href={`${process.env.NEXT_PUBLIC_HOST}/product/${item.attributes.slug}`}
-                  href={`http://localhost:3000/product/apple`}
+                  href={`http://localhost:3000/product/${item.attributes.slug}`}
+                  // href={`http://localhost:3000/product/apple`}
                 > 
                   <div className="lg:w-1/4 md:w-1/2 p-4 w-full border rounded-lg flex flex-col items-center shadow-lg cursor-pointer">
                     
@@ -48,7 +48,7 @@ export default Fruits;
 
 export async function getServerSideProps(context) {
   let headers = { Authorization: process.env.getproductstoken };
-  let a = await fetch("http://localhost:1337/api/products?category=fruits&populate=*", {
+  let a = await fetch("http://localhost:1337/api/products?filters[category][$contains]=Fruits&populate=*", {
     headers: headers,
   });
   let products = await a.json();
