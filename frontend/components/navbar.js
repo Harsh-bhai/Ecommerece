@@ -8,7 +8,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiFillCloseCircle ,AiOutlineShoppingCart} from 'react-icons/ai';
 
 import Link from 'next/link';
-const Navbar = () => {
+const Navbar = () => {  
   //add login paramerter here
   const [login, setlogin] = useState(false)
   
