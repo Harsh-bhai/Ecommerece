@@ -1,60 +1,62 @@
 import Navbar from "../components/navbar";
 import "../styles/globals.css";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import NextNProgress from "nextjs-progressbar";
 import Footer from "../components/footer";
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
-try {
-  if(localStorage.getItem("cartstate")){
-    setCart(JSON.parse(localStorage.getItem("cartstate")))
-  }
-} catch (error) {
-  console.error(error)
-  localStorage.clear()
-  
-}
+    try {
+      if (localStorage.getItem("cartstate")) {
+        setCart(JSON.parse(localStorage.getItem("cartstate")));
+      }
+    } catch (error) {
+      console.error(error); 
+      localStorage.clear();
+    }
+  }, []);
 
-
-},
-   [])
-  
-  const [cart, setCart] = useState({});
+  const [cart, setCart] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
+  const [reloadkey, setReloadkey] = useState(1);
   const savecart = (mycart) => {
-    localStorage.setItem("cartstate", mycart);
+    localStorage.setItem("cartstate", JSON.stringify(mycart));
+    let subt = 0;
+    for (let i = 0; i < cart.length; i++) {
+      subt = subt + mycart[i][1];
+    }
+    console.log(subt,"subt")
+    setSubtotal(subt);
   };
-  const addtocart = (itemcode, qty, price, size) => {
+  const addtocart = (item, qty, price) => {
     let mycart = cart;
-    if (!(itemcode in cart)) {
-      mycart[itemcode] = { qty: 1, price, size };
-    } else {
-      mycart[itemcode].qty = cart.qty + 1;
+    for (let index = 0; index < qty; index++) {
+      mycart.push([item, price]);
     }
     setCart(mycart);
     savecart(mycart);
+    setReloadkey(Math.random());
   };
-  const clearcart = (mycart) => {
-    setCart({});
-    savecart({})
+  const clearcart = () => {
+    setCart([]);
+    savecart([]);
+  };
 
-  };
-  
-  const removefromcart = (itemcode, qty, price, size) => {
+  const removefromcart = (item, qty) => {
     let mycart = cart;
-    
-    if ((itemcode in cart)) {
-      mycart[itemcode].qty = cart.qty - 1;
-    }
-    if(mycart[itemcode].qty<0){
-      delete mycart[itemcode]
-    }
+    let index = mycart.indexOf(item);
+    mycart.splice(index);
     setCart(mycart);
     savecart(mycart);
   };
   return (
     <>
-      <Navbar cart={cart} addtocart={addtocart} removefromcart={removefromcart} clearcart={clearcart} subtotal={subtotal}/>
+      <Navbar
+        cart={cart}
+        addtocart={addtocart}
+        removefromcart={removefromcart}
+        clearcart={clearcart}
+        subtotal={subtotal}
+      />
       <NextNProgress
         color="#09692c"
         startPosition={0.5}
@@ -62,7 +64,14 @@ try {
         height={3}
         showOnShallow={true}
       />
-      <Component cart={cart} addtocart={addtocart} removefromcart={removefromcart} clearcart={clearcart} subtotal={subtotal} {...pageProps} />
+      <Component
+        cart={cart}
+        addtocart={addtocart}
+        removefromcart={removefromcart}
+        clearcart={clearcart}
+        subtotal={subtotal}
+        {...pageProps}
+      />
       <Footer />
     </>
   );

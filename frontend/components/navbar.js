@@ -8,7 +8,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiFillCloseCircle ,AiOutlineShoppingCart} from 'react-icons/ai';
 
 import Link from 'next/link';
-const Navbar = () => {  
+const Navbar = ({cart}) => {  
   //add login paramerter here
   const [login, setlogin] = useState(false)
   
@@ -61,7 +61,7 @@ const Navbar = () => {
         {login ? <div className=" z-20 account absolute top-1  md:top-[-5px] right-0 text-4xl p-6 cursor-pointer ">
           <MdAccountCircle />
         </div> : <Link href={'/login'}><button className=" text-white bg-green-600 mx-8  py-2 px-6 focus:outline-none hover:bg-green-700 rounded-full text-lg">Login</button></Link>}
-        <Link href={"/cart"}><AiOutlineShoppingCart className='text-3xl  cursor-pointer'/></Link>
+        <Link href={"/cart"}><div className='flex'><AiOutlineShoppingCart className='text-3xl  cursor-pointer'/><p className=' text-xl'>({cart.length})</p></div></Link>
         </div>
       </div>
       </div>
