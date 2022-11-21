@@ -8,8 +8,10 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiFillCloseCircle ,AiOutlineShoppingCart} from 'react-icons/ai';
 
 import Link from 'next/link';
-const Navbar = () => {
+const Navbar = () => {  
+  //add login paramerter here
   const [login, setlogin] = useState(false)
+  
   const toggle = () => {
     if ((ref.current.classList.contains("-translate-x-full"))) {
       ref.current.classList.remove("-translate-x-full")
@@ -36,7 +38,7 @@ const Navbar = () => {
             <Link href={"/about"}><div onClick={toggle} className='hover:text-green-600 text-gray-700 cursor-pointer'>About</div></Link>
             {/* <Link  href={"/services"}><div onClick={toggle} className='hover:text-green-600 text-gray-700 cursor-pointer'>Services</div></Link> */}
             <Link href={"/categories"}><div onClick={toggle} className='hover:text-green-600 text-gray-700 cursor-pointer'>Categories</div></Link>
-            <Link href={"/contact"}><div onClick={toggle} className='hover:text-green-600 text-gray-700 cursor-pointer'>Contact Us</div></Link>
+            <Link href={"/contact"}><div onClick={toggle} className='hover:text-green-600 text-gray-700 cursor-pointer'>Feedback</div></Link>
             <Link href={"/seller"}><div onClick={toggle} className='hover:text-green-600 text-gray-700 cursor-pointer'>Become a Seller</div></Link>
             <Link href={"/orders"}><div onClick={toggle} className='hover:text-green-600 text-gray-700 cursor-pointer'>My Orders</div></Link>
           </div>

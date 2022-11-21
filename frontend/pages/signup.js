@@ -19,7 +19,6 @@ const Signup = () => {
   const [username, setusername] = useState('')
   const [email, setemail] = useState('')
   const [password, setpassword] = useState('')
-  const [login, setlogin] = useState(false)
 
 
   const handlechange= ( e ) => {
@@ -40,7 +39,7 @@ const Signup = () => {
     const data = { username, email, password }
    
 
-   let res= await  fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/local`, {
+   let res= await  fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/local/register`, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -54,8 +53,7 @@ const Signup = () => {
     setemail("")
     setpassword("")
     setusername("")
-    setlogin(true)
-    toast.success('Logged In Successfully', {
+    toast.success('Account Created Sucessfully', {
       position: "top-left",
       autoClose: 1000,
       hideProgressBar: false,
@@ -64,7 +62,7 @@ const Signup = () => {
       draggable: true,
       progress: undefined,
       });
-      Router.push("/")
+      Router.push("/login")
       
 
   }
@@ -86,12 +84,18 @@ pauseOnHover
         <div className="max-w-md w-full space-y-8">
           <div>
             <img className="mx-auto h-24 w-auto" src="/vmartgreen.png" alt="Workflow" />
-            <h2 className="mt-6 text-center text-2xl font-bold text-gray-900 my-4">Login to your Account</h2>
+            <h2 className="mt-6 text-center text-2xl font-bold text-gray-900 my-4">Create a New Account</h2>
             <p className="mt-2 text-center text-sm text-gray-600">Or
-              <Link href={"/signup"}><a href="#" className="font-medium text-green-700 hover:text-green-700"> Create New Account </a></Link></p>
+              <Link href={"/login"}><a href="#" className="font-medium text-green-700 hover:text-green-700"> Log In </a></Link></p>
           </div>
           <form onSubmit={handlesubmit} className=" space-y-4" method="POST">
-            
+            <input type="hidden" name="remember" value="true" />
+            <div className="rounded-md shadow-sm  flex flex-col space-y-4">
+              <div>
+                <label htmlFor="name" className="sr-only">Your Name</label>
+                <input value={username} onChange={handlechange} id="name" name="name" type="text" autoComplete="Name" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-700 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-700 focus:border-green-700 focus:z-10 sm:text-sm" placeholder="Your Name" />
+              </div>
+            </div>
             <div>
               <label htmlFor="email"  className="sr-only">Email address</label>
               <input value={email} onChange={handlechange} id="email" name="email" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-700 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-700 focus:border-green-700 focus:z-10 sm:text-sm" placeholder="Email address" />
@@ -106,7 +110,7 @@ pauseOnHover
               </div> */}
             <div>
               <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-700 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700">
-              
+
                 Sign in
               </button>
             </div>
