@@ -1,94 +1,56 @@
 import React from 'react'
 import Link from 'next/link'
 
-const Cart = () => {
+const Cart = ({cart,addtocart,removefromcart,subtotal}) => {
+  // const count = ( array,item ) => {
+  //   let cnt=0
+  //   if(item in array){
+  //     cnt+=1
+  //   }
+  //   return cnt
+  // }
   return (
     <div className="container mx-auto mt-10">
     <div className="flex shadow-md my-10">
       <div className="w-3/4 bg-white px-10 py-10">
         <div className="flex justify-between border-b pb-8">
           <h1 className="font-semibold text-2xl">Shopping Cart</h1>
-          <h2 className="font-semibold text-2xl">3 Items</h2>
+          <h2 className="font-semibold text-2xl">{cart.length} Items</h2>
         </div>
         <div className="flex mt-10 mb-5">
           <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
-          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantity</h3>
-          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
+          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">Quantity</h3>
+          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">Price</h3>
 
         </div>
-        <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+        {cart.map((item)=>{
+          return(
+            <div key={item} className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
           <div className="flex w-2/5"> 
             <div className="w-20">
-              <img className="h-24" src="https://media.istockphoto.com/id/184276818/photo/red-apple.jpg?s=612x612&w=0&k=20&c=NvO-bLsG0DJ_7Ii8SSVoKLurzjmV0Qi4eGfn6nW3l5w=" alt=""/>
+              <img className="h-24" src={`${item[0].image.data.attributes.name}`} alt=""/>
             </div>
             <div className="flex flex-col justify-between ml-4 flex-grow">
-              <span className="font-bold text-sm">Apple</span>
-              <span className="text-green-500 text-xs">Kashmiri</span>
-              <a href="#" className="font-semibold hover:text-green-500 text-gray-500 text-xs">Remove</a>
+              <span className="font-bold text-sm">{item[0].title}</span>
+              <span className="text-green-500 text-xs">{item[0].category}</span>
+              <a onClick={()=>{removefromcart(item[0],1)}} href="#" className="font-semibold hover:text-green-500 text-gray-500 text-xs">Remove</a>
             </div>
           </div>
-          <div className="flex justify-center w-1/5">
-            <svg className="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-            </svg>
+          <div className="flex justify-center items-center w-1/5">
+            <div ><svg  className="cursor-pointer fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+            </svg></div>
 
-            <input className="mx-2 border text-center w-8" type="text" value="1"/>
-
-            <svg className="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+            10
+            <div ><svg  className="cursor-pointer fill-current text-gray-600 w-3" viewBox="0 0 448 512">
               <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-            </svg>
+            </svg></div>
           </div>
-          <span className="text-center w-1/5 font-semibold text-sm">₹40</span>
+          <span className="text-center w-1/5 font-semibold text-sm">₹{item[0].price}</span>
           
         </div>
+          )
+        })}
 
-        <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-          <div className="flex w-2/5"> 
-            <div className="w-20">
-              <img className="h-24" src="https://images.immediate.co.uk/production/volatile/sites/30/2017/01/Bananas-218094b-scaled.jpg" alt=""/>
-            </div>
-            <div className="flex flex-col justify-between ml-4 flex-grow">
-              <span className="font-bold text-sm">Banana</span>
-              <span className="text-green-500 text-xs">Kashmiri</span>
-              <a href="#" className="font-semibold hover:text-green-500 text-gray-500 text-xs">Remove</a>
-            </div>
-          </div>
-          <div className="flex justify-center w-1/5">
-            <svg className="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-            </svg>
-
-            <input className="mx-2 border text-center w-8" type="text" value="1"/>
-
-            <svg className="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
-              <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-            </svg>
-          </div>
-          <span className="text-center w-1/5 font-semibold text-sm">₹55</span>
-          
-        </div>
-
-        <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-          <div className="flex w-2/5"> 
-            <div className="w-20">
-              <img className="h-24" src="https://www.bigbasket.com/media/uploads/p/xxl/20001427_2-fresho-grapes-green-with-seed.jpg" alt=""/>
-            </div>
-            <div className="flex flex-col justify-between ml-4 flex-grow">
-              <span className="font-bold text-sm">Grapes</span>
-              <span className="text-green-500 text-xs">Kashmiri</span>
-              <a href="#" className="font-semibold hover:text-green-500 text-gray-500 text-xs">Remove</a>
-            </div>
-          </div>
-          <div className="flex justify-center w-1/5">
-            <svg className="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-            </svg>
-            <input className="mx-2 border text-center w-8" type="text" value="1"/>
-
-            <svg className="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
-              <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-            </svg>
-          </div>
-          <span className="text-center w-1/5 font-semibold text-sm">₹55</span>
-          
-        </div>
 
         <Link href={"/categories"}><a href="#" className="flex font-semibold text-green-600 text-sm mt-10">
       
@@ -100,8 +62,7 @@ const Cart = () => {
       <div id="summary" className="w-1/4 px-8 py-10">
         <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
         <div className="flex justify-between mt-10 mb-5">
-          <span className="font-semibold text-sm uppercase">Items 3</span>
-          <span className="font-semibold text-sm">₹100</span>
+          <span className="font-semibold text-sm uppercase">Items {cart.length}</span>
         </div>
         <div>
           <label className="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
@@ -114,9 +75,9 @@ const Cart = () => {
         <div className="border-t mt-8">
           <div className="flex font-semibold justify-between py-6 text-sm uppercase">
             <span>Total cost</span>
-            <span>₹150</span>
+            <span>₹{subtotal}</span>
           </div>
-          <button className="bg-green-500 font-semibold hover:bg-green-600 py-3 text-sm text-white uppercase w-full rounded-full">Checkout</button>
+          <Link href={"/checkout"}><button className="bg-green-500 font-semibold hover:bg-green-600 py-3 text-sm text-white uppercase w-full rounded-full">Checkout</button></Link>
         </div>
       </div>
 

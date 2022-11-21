@@ -9,12 +9,12 @@ import { useRouter } from 'next/router'
 
 const Signup = () => {
   let Router=useRouter()
-  // useEffect(() => {
-  //   if(localStorage.getItem("token")){
-  //     Router.push("/")
-  //   }
-  
-  // }, [])
+      useEffect(() => {
+        if(localStorage.getItem("jwtoken")){
+          Router.push("/")
+        }
+      
+      }, [])
  
   const [username, setusername] = useState('')
   const [email, setemail] = useState('')
@@ -48,7 +48,8 @@ const Signup = () => {
       body: JSON.stringify(data),
     })
   let response =await res.json()
-  console.log("hehe")
+  localStorage.setItem('jwtoken',response.jwt)
+  console.log("hehe",response.jwt)
   console.log(response)
     setemail("")
     setpassword("")
