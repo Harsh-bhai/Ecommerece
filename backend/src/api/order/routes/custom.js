@@ -4,7 +4,7 @@
 module.exports = {
     routes: [
       {
-        method: 'GET',
+        method: 'POST',
         path: '/orders/pretransaction',
         handler: 'custom.exampleAction',
       
