@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Seller = () => {
@@ -10,7 +11,7 @@ const Seller = () => {
       <h1 className=" text-center text-4xl font-semibold my-8">Launch your business in 10 minutes</h1>
       <div className="flex justify-center items-center space-x-4">
         <input type="text" placeholder="Enter Mobile Number" className="border p-2 rounded-lg" />
-        <button type="submit" className="group relative  flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none ">Start Selling</button>
+        <Link href={"/sellerform"}><button type="submit" className="group relative  flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none ">Start Selling</button></Link>
       </div>
       <section className="text-gray-600 body-font border-2 m-2 mb-10 p-5 shadow-2xl mt-20 bg-green-300 border-white">
           <div className="container px-5 py-24 mx-auto">
