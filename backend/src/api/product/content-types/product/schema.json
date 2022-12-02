@@ -62,6 +62,9 @@
       "type": "integer",
       "required": true,
       "default": 0
+    },
+    "descriptionmore": {
+      "type": "text"
     }
   }
 }
