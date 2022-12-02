@@ -3,7 +3,9 @@ import "../styles/globals.css";
 import { useState, useEffect } from "react";
 import NextNProgress from "nextjs-progressbar";
 import Footer from "../components/footer";
+import Head from "next/head";
 function MyApp({ Component, pageProps }) {
+  <Head><meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"/></Head>
   useEffect(() => {
     try {
       if (localStorage.getItem("cartstate")) {

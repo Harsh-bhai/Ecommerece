@@ -64,12 +64,6 @@ const Cart = ({cart,addtocart,removefromcart,subtotal}) => {
         <div className="flex justify-between mt-10 mb-5">
           <span className="font-semibold text-sm uppercase">Items {cart.length}</span>
         </div>
-        <div>
-          <label className="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
-          <select className="block p-2 text-gray-600 w-full text-sm">
-            <option>Standard shipping - ₹10.00</option>
-          </select>
-        </div>
        
        
         <div className="border-t mt-8">
