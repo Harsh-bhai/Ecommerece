@@ -1,7 +1,7 @@
 import Script from "next/script";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
-const Checkout = ({ subtotal ,cart}) => {
+const Checkout = ({ subtotal,cart}) => {
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -51,13 +51,14 @@ const Checkout = ({ subtotal ,cart}) => {
       },
     };
 
+      // initialze configuration using init method
       window.Paytm.CheckoutJS.init(config).then(function onSuccess() {
-        // after successfully updating configuration, invoke JS Checkout
-        window.Paytm.CheckoutJS.invoke();
-    }).catch(function onError(error){
-        console.log("error => ",error);
-    });
-  };
+      // after successfully updating configuration, invoke JS Checkout
+      window.Paytm.CheckoutJS.invoke();
+      }).catch(function onError(error){
+      console.log("error => ",error);
+      });
+      }
 
   return (
     <div className="flex justify-center items-center my-20">
