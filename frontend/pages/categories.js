@@ -19,7 +19,7 @@ const Categories = ({products}) => {
         {console.log(products)}
         {products.data.map((item)=>{
           return(
-            <Link key={item.attributes.id} href={`/${item.attributes.pageurl}`}><div className="p-4 md:w-1/3 sm:mb-0 mb-6 cursor-pointer">
+            <Link key={item.attributes.id} href={`/${item.attributes.pageurl}`}><div className="p-4 md:w-1/3 sm:mb-0 mb-6 cursor-pointer hover:scale-105 shadow-lg rounded-xl transiton transition-transform delay-50  hover:border-none">
           <div className="rounded-lg h-64 overflow-hidden">
             <img alt="content" className="object-cover object-center h-full w-full" src={item.attributes.image.data.attributes.name}/> 
 

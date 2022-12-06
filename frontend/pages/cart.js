@@ -1,14 +1,17 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import Link from 'next/link'
+import { AiOutlinePlusCircle,AiOutlineMinusCircle } from 'react-icons/ai';
 
-const Cart = ({cart,addtocart,removefromcart,subtotal}) => {
-  // const count = ( array,item ) => {
-  //   let cnt=0
-  //   if(item in array){
-  //     cnt+=1
-  //   }
-  //   return cnt
-  // }
+const Cart = ({subtotal,cart,addtocart,removefromcart}) => {
+
+// const count = (list,item) => {
+//   const b = {};
+
+//   for (const num of list) {
+//     b[num] = b[num] ? b[num] + 1 : 1;
+//   }
+//   return b[item.toString()]
+// };
   return (
     <div className="container mx-auto mt-10">
     <div className="flex shadow-md my-10">
@@ -33,17 +36,13 @@ const Cart = ({cart,addtocart,removefromcart,subtotal}) => {
             <div className="flex flex-col justify-between ml-4 flex-grow">
               <span className="font-bold text-sm">{item[0].title}</span>
               <span className="text-green-500 text-xs">{item[0].category}</span>
-              <a onClick={()=>{removefromcart(item[0],1)}} href="#" className="font-semibold hover:text-green-500 text-gray-500 text-xs">Remove</a>
+              <a onClick={()=>{removefromcart(item[0],1)}} href="#" className="font-semibold hover:text-red-700 text-red-400 text-xs">Remove</a>
             </div>
           </div>
-          <div className="flex justify-center items-center w-1/5">
-            <div ><svg  className="cursor-pointer fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-            </svg></div>
-
-            10
-            <div ><svg  className="cursor-pointer fill-current text-gray-600 w-3" viewBox="0 0 448 512">
-              <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-            </svg></div>
+          <div className="flex justify-center space-x-4 items-center w-1/5">
+          <AiOutlineMinusCircle className='text-xl cursor-pointer' onClick={()=>{removefromcart(item[0],1)}}/>
+            {/* <div>{count(cart,item)}</div> */}
+          <AiOutlinePlusCircle className='text-xl cursor-pointer' onClick={()=>{addtocart(item[0],1, item[0].price)}}/>
           </div>
           <span className="text-center w-1/5 font-semibold text-sm">₹{item[0].price}</span>
           

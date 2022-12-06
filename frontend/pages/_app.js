@@ -11,6 +11,9 @@ function MyApp({ Component, pageProps }) {
       if (localStorage.getItem("cartstate")) {
         setCart(JSON.parse(localStorage.getItem("cartstate")));
       }
+      if (localStorage.getItem("subtotal")) {
+        setSubtotal(localStorage.getItem("subtotal"))
+      }
     } catch (error) {
       console.error(error); 
       localStorage.clear();
@@ -28,6 +31,7 @@ function MyApp({ Component, pageProps }) {
     }
     console.log(subt,"subt")
     setSubtotal(subt);
+    localStorage.setItem("subtotal",subtotal)
   };
   const addtocart = (item, qty, price) => {
     let mycart = cart;
