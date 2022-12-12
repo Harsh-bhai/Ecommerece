@@ -97,7 +97,7 @@ export default function Home({ fruits, Dairyproducts, Groceries }) {
         />
         <div className="maindiv flex  overflow-hidden">
           <div><div ref={img1} className="slide1 h-96  w-full translate-x-0 transform transition-transform">
-            <img src="/banner1.jpg" className="  " alt="" />
+            <img src="/groceries.png" className="  " alt="no img" />
           </div></div>
          
         </div>
