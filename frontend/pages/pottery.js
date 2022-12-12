@@ -61,7 +61,7 @@ export default Pottery;
 
 export async function getServerSideProps(context) {
   let headers = { Authorization: process.env.getproductstoken };
-  let a = await fetch("http://localhost:1337/api/products?filters[category][$contains]=Pottery&populate=*", {
+  let a = await fetch("http://localhost:1337/api/products?filters[category][$contains]=Potteries&populate=*", {
     headers: headers,
   });
   let products = await a.json();

@@ -2,7 +2,7 @@ import React,{useEffect,useState} from 'react'
 import Link from 'next/link'
 import { AiOutlinePlusCircle,AiOutlineMinusCircle } from 'react-icons/ai';
 
-const Cart = ({subtotal,cart,addtocart,removefromcart}) => {
+const Cart = ({subtotal,cart,addtocart,removefromcart,clearcart}) => {
 
 // const count = (list,item) => {
 //   const b = {};
@@ -18,13 +18,13 @@ const Cart = ({subtotal,cart,addtocart,removefromcart}) => {
       <div className="w-3/4 bg-white px-10 py-10">
         <div className="flex justify-between border-b pb-8">
           <h1 className="font-semibold text-2xl">Shopping Cart</h1>
-          <h2 className="font-semibold text-2xl">{cart.length} Items</h2>
+          <div className="2item flex space-x-8"><h2 className="font-semibold text-2xl">{cart.length} Items</h2>
+          <button className="bg-green-500 font-semibold hover:bg-green-600 p-3 text-sm text-white uppercase rounded-full" onClick={clearcart}>Clear Cart</button></div>
         </div>
         <div className="flex mt-10 mb-5">
           <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
-          <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">Quantity</h3>
           <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">Price</h3>
-
+{console.log(cart,"cart")}
         </div>
         {cart.map((item)=>{
           return(
@@ -39,11 +39,7 @@ const Cart = ({subtotal,cart,addtocart,removefromcart}) => {
               <a onClick={()=>{removefromcart(item[0],1)}} href="#" className="font-semibold hover:text-red-700 text-red-400 text-xs">Remove</a>
             </div>
           </div>
-          <div className="flex justify-center space-x-4 items-center w-1/5">
-          <AiOutlineMinusCircle className='text-xl cursor-pointer' onClick={()=>{removefromcart(item[0],1)}}/>
-            {/* <div>{count(cart,item)}</div> */}
-          <AiOutlinePlusCircle className='text-xl cursor-pointer' onClick={()=>{addtocart(item[0],1, item[0].price)}}/>
-          </div>
+         
           <span className="text-center w-1/5 font-semibold text-sm">₹{item[0].price}</span>
           
         </div>
@@ -80,3 +76,6 @@ const Cart = ({subtotal,cart,addtocart,removefromcart}) => {
 }
 
 export default Cart
+
+
+
