@@ -15,7 +15,6 @@ const Login = () => {
 
   const [identifier, setidentifier] = useState("");
   const [password, setpassword] = useState("");
-  const [login, setlogin] = useState(false);
 
   const handlechange = (e) => {
     if (e.target.name == "email") {
@@ -37,22 +36,23 @@ const Login = () => {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
-            Authorization: `Bearer ${localStorage.getItem("jwtoken")}`,
+            // Authorization: `Bearer ${localStorage.getItem("jwtoken")}`,
           },
           body: JSON.stringify(data),
         })
         let response=await res.json()
         if(response.error){
           alert(response.error.message)
+          console.log(response.error)
         }
         else{
           Router.push('/')
+          localStorage.setItem("jwtoken",response.jwt)
         }
         console.log(response)
         
         
 
-      
       // toast.success("Logged In Successfully", {
       //   position: "top-left",
       //   autoClose: 1000,
@@ -70,7 +70,7 @@ const Login = () => {
   };
   return (
     <div>
-      <ToastContainer
+      {/* <ToastContainer
         position="top-left"
         autoClose={1000}
         hideProgressBar={false}
@@ -80,9 +80,9 @@ const Login = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-      />
+      /> */}
 
-      <div className="min-h-fgreen-700ull flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen green-700ull flex  justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
             <img

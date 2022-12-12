@@ -81,7 +81,7 @@ draggable
 pauseOnHover
 />
 
-      <div className="min-h-fgreen-700ull flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen green-700ull flex  justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
             <img className="mx-auto h-24 w-auto" src="/vmartgreen.png" alt="Workflow" />

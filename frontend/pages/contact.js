@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Contact = () => {
@@ -29,7 +30,7 @@ const Contact = () => {
             </div>
           </div>
           <div className="p-2 w-full">
-            <button className="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded-full text-lg">Send Response</button>
+            <Link href={'/sellersuccess'}><button className="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded-full text-lg">Send Response</button></Link>
           </div>
           <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
             <a className="text-green-500">example@email.com</a>

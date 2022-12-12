@@ -5,17 +5,22 @@ import NextNProgress from "nextjs-progressbar";
 import Footer from "../components/footer";
 import Head from "next/head";
 function MyApp({ Component, pageProps }) {
-  <Head><meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"/></Head>
+  <Head>
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+    />
+  </Head>;
   useEffect(() => {
     try {
       if (localStorage.getItem("cartstate")) {
         setCart(JSON.parse(localStorage.getItem("cartstate")));
       }
       if (localStorage.getItem("subtotal")) {
-        setSubtotal(localStorage.getItem("subtotal"))
+        setSubtotal(localStorage.getItem("subtotal"));
       }
     } catch (error) {
-      console.error(error); 
+      console.error(error);
       localStorage.clear();
     }
   }, []);
@@ -26,12 +31,20 @@ function MyApp({ Component, pageProps }) {
   const savecart = (mycart) => {
     localStorage.setItem("cartstate", JSON.stringify(mycart));
     let subt = 0;
-    for (let i = 0; i < cart.length; i++) {
-      subt = subt + mycart[i][1];
+    if (mycart == []) {
+      setSubtotal(subt);
+
+      localStorage.setItem("subtotal", subtotal);
+    } else {
+      console.log(true);
+      for (let i = 0; i < cart.length; i++) {
+        subt = subt + mycart[i][1];
+      }
+      setSubtotal(subt);
+
+      localStorage.setItem("subtotal", subtotal);
     }
-    console.log(subt,"subt")
-    setSubtotal(subt);
-    localStorage.setItem("subtotal",subtotal)
+    console.log("mycart", mycart);
   };
   const addtocart = (item, qty, price) => {
     let mycart = cart;
@@ -44,7 +57,9 @@ function MyApp({ Component, pageProps }) {
   };
   const clearcart = () => {
     setCart([]);
-    savecart([]);
+    localStorage.setItem("cartstate", cart);
+    setSubtotal(0);
+    // savecart([]);
   };
 
   const removefromcart = (item, qty) => {
@@ -54,6 +69,11 @@ function MyApp({ Component, pageProps }) {
     setCart(mycart);
     savecart(mycart);
   };
+
+  const logout = () => {
+    localStorage.removeItem("jwtoken");
+    setReloadkey(Math.random());
+  };
   return (
     <>
       <Navbar
@@ -62,6 +82,7 @@ function MyApp({ Component, pageProps }) {
         removefromcart={removefromcart}
         clearcart={clearcart}
         subtotal={subtotal}
+        logout={logout}
       />
       <NextNProgress
         color="#09692c"

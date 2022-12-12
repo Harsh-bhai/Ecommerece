@@ -4,7 +4,7 @@ import React, { useState,useEffect } from "react";
 const Checkout = ({ subtotal,cart}) => {
   const [form, setForm] = useState({
     name: "",
-    phone: "",
+    email: "",
     city: "",
     state: "",
     pincode: "",
@@ -51,6 +51,7 @@ const Checkout = ({ subtotal,cart}) => {
       },
     };
 
+
       // initialze configuration using init method
       window.Paytm.CheckoutJS.init(config).then(function onSuccess() {
       // after successfully updating configuration, invoke JS Checkout
@@ -61,7 +62,9 @@ const Checkout = ({ subtotal,cart}) => {
       }
 
   return (
-    <div className="flex justify-center items-center my-20">
+    <div className="flex flex-col justify-center items-center my-20">
+      <h1 className="text-3xl my-10 font-semibold">Checkout</h1>
+    
       <Script id="script"
         type="application/javascript"
         crossorigin="anonymous"
@@ -90,18 +93,18 @@ const Checkout = ({ subtotal,cart}) => {
           <div className="w-full md:w-1/2 px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="phone"
+              htmlFor="email"
             >
-              Phone Number
+              Email ID
             </label>
             <input
-              name="phone"
-              value={form.phone}
+              name="email"
+              value={form.email}
               onChange={handlechange}
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="phone"
-              type="number"
-              placeholder="Phone Number"
+              id="email"
+              type="email"
+              placeholder="Email ID"
             />
           </div>
         </div>
