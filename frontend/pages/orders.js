@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 
 const Orders = ({ orders }) => {
+
   return (
     <div>
       {console.log("Orders",orders)}
-      {!orders? (
+      { orders.data==[]? (
         <div className="flex flex-col space-y-10 justify-center items-center my-20 text-4xl font-bold">
           <div>No Orders Till Now</div>
           <Link href={"/"}>
@@ -23,37 +24,39 @@ const Orders = ({ orders }) => {
         </div>
 
           {orders.data.map((item) => {
+            
             return (
-              <div
-                key={item}
-                className="flex flex-col m-12 shadow-green-300 shadow-lg cursor-pointer rounded-lg space-y-8 p-8 h-72 transition-transform transform hover:scale-105"
-              >{console.log(item.attributes,"lkafjsadj")}
-                <div className="main flex space-x-4  ">
-                  <div className="1 w-1/3 ">
-                    <img className="w-36  "
-                      src={
-                        item.attributes.products[0][0].image.data.attributes
-                          .name
-                      }
-                      alt=""
-                    />
-                  </div>
-                  <div className="1 w-1/3  ">
-                    <div className="flex flex-col space-y-4">
-                      <p className="font-bold">{item.attributes.products[0][0].title}</p>
-                      <p className="font-bold">₹{item.attributes.products[0][0].price}</p>
-                      <p className="font-semibold">{item.attributes.products[0][0].size}</p>
-                      <p className="font-bold">Delivery Status : </p> <p>Pending</p>
-                    </div>
-                  </div>
-                  <div className="1 w-1/3 ">
-                  <div className="flex flex-col space-y-4">
-                  <p className="font-bold">ORDER ID : </p><p>{item.attributes.orderid}</p>
-                  <p className="font-bold">Time and date : </p> <p>{item.attributes.paymentinfo && item.attributes.paymentinfo.TXNDATE}</p>
-                  
-                  </div></div>
+              <Link key={item} href={'/orderdetails'}><div
+              
+              className="flex flex-col m-12 shadow-green-300 shadow-lg cursor-pointer rounded-lg space-y-8 p-8 h-72 transition-transform transform hover:scale-105"
+            >{console.log(item.attributes,"lkafjsadj")}
+              <div className="main flex space-x-4  ">
+                <div className="1 w-1/3 ">
+                  <img className="w-36  "
+                    src={
+                      item.attributes.products[0][0].image.data.attributes
+                        .name
+                    }
+                    alt=""
+                  />
                 </div>
+                <div className="1 w-1/3  ">
+                  <div className="flex flex-col space-y-4">
+                    <p className="font-bold">{item.attributes.products[0].length==1?item.attributes.products[0][0].title:item.attributes.products[0][0].title + " and more..."}</p>
+                    
+                    <p className="font-bold">₹{item.attributes.amount}</p>
+                    <p className="font-semibold">{item.attributes.products[0][0].size}</p>
+                    <p className="font-bold">Delivery Status : </p> <p>Pending</p>
+                  </div>
+                </div>
+                <div className="1 w-1/3 ">
+                <div className="flex flex-col space-y-4">
+                <p className="font-bold">ORDER ID : </p><p>{item.attributes.orderid}</p>
+                <p className="font-bold">Time and date : </p> <p>{item.attributes.paymentinfo && item.attributes.paymentinfo.TXNDATE}</p>
+                
+                </div></div>
               </div>
+            </div></Link>
             );
           })}
         </div>

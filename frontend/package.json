@@ -9,12 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "jspdf": "^2.5.1",
     "next": "12.3.0",
     "nextjs-progressbar": "^0.0.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
-    "react-toastify": "^9.1.1"
+    "react-toastify": "^9.1.1",
+    "swiper": "^8.4.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.11",
