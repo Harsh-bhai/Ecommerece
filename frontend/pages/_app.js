@@ -65,7 +65,7 @@ function MyApp({ Component, pageProps }) {
   const removefromcart = (item, qty) => {
     let mycart = cart;
     let index = mycart.indexOf(item);
-    mycart.splice(index);
+    mycart.splice(index,1);
     setCart(mycart);
     savecart(mycart);
   };

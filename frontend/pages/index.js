@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import { useRef } from "react";
+import { useRef,useState } from "react";
 
 // import { useEffect } from "react";
 
@@ -83,20 +83,22 @@ export default function Home({ fruits, Dairyproducts, Groceries }) {
     <div>
 
       <div className="imgslider relative mb-1">
-        <img
+        {/* <img
           src="slidebutton.jpg"
           className="z-10 h-20 cursor-pointer rounded-2xl opacity-50 absolute right-0 top-40 buttonright pulse md:block hidden  
-                " onClick={toggleleft3}
+                "
+                //  onClick={toggleleft3}
           alt=""
         />
         <img
           src="slidebuttonr.jpg"
           className="z-10 h-20 cursor-pointer rounded-2xl opacity-50 absolute left-0 top-40 buttonleft pulse md:block hidden 
-                "onClick={toggleright3}
+                "
+                // onClick={toggleright3}
           alt=""
-        />
-        <div className="maindiv flex  overflow-hidden">
-          <div><div ref={img1} className="slide1 h-96  w-full translate-x-0 transform transition-transform">
+        /> */}
+        <div className="maindiv flex cursor-pointer overflow-hidden">
+          <div><div className="slide1 h-96  w-full translate-x-0 transform transition-transform">
             <img src="/groceries.png" className="  " alt="no img" />
           </div></div>
          
@@ -373,3 +375,5 @@ export async function getServerSideProps(context) {
     props: { fruits, Dairyproducts, Groceries }, // will be passed to the page component as props
   };
 }
+
+
