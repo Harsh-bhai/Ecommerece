@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { useRef,useState } from "react";
+import Carousel from "../components/carousel";
 
 // import { useEffect } from "react";
 
@@ -83,27 +84,11 @@ export default function Home({ fruits, Dairyproducts, Groceries }) {
     <div>
 
       <div className="imgslider relative mb-1">
-        {/* <img
-          src="slidebutton.jpg"
-          className="z-10 h-20 cursor-pointer rounded-2xl opacity-50 absolute right-0 top-40 buttonright pulse md:block hidden  
-                "
-                //  onClick={toggleleft3}
-          alt=""
-        />
-        <img
-          src="slidebuttonr.jpg"
-          className="z-10 h-20 cursor-pointer rounded-2xl opacity-50 absolute left-0 top-40 buttonleft pulse md:block hidden 
-                "
-                // onClick={toggleright3}
-          alt=""
-        /> */}
-        <div className="maindiv flex cursor-pointer overflow-hidden">
-          <div><div className="slide1 h-96  w-full translate-x-0 transform transition-transform">
-            <img src="/groceries.png" className="  " alt="no img" />
-          </div></div>
-         
-        </div>
+        <Carousel/>
+       
+        
       </div>
+      
 
       <style jsx>
         {`
