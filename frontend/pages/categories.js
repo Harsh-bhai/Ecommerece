@@ -4,13 +4,13 @@ import Link from 'next/link'
 const Categories = ({products}) => {
   return (
     <div><section className="text-gray-600 body-font">  
-    <div className="container px-5 py-24 mx-auto">
+    <div className="container px-5 py-14 mx-auto">
       <div className="flex flex-col">
         <div className="h-1 bg-gray-200 rounded overflow-hidden">
-          <div className="w-24 h-full bg-green-500"></div>
+          <div className="w-40 h-full bg-green-500"></div>
         </div>
         <div className="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
-          <h1 className="sm:w-2/5 text-gray-900 font-medium title-font text-2xl mb-2 sm:mb-0">Categories</h1>
+          <h1 className="sm:w-2/5 text-gray-900 font-medium title-font text-3xl mb-2 sm:mb-0">Categories</h1>
         </div>
       </div>
       <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">

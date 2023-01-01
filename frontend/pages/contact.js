@@ -6,8 +6,8 @@ const Contact = () => {
     <div><section className="text-gray-600 body-font relative">
     <div className="container px-5 py-24 mx-auto">
       <div className="flex flex-col text-center w-full mb-12">
-        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Feedback</h1>
-        <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Your response will help us to improve<br/> & help people to give you more services with best quality and best price</p>
+        <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4 text-gray-900">Feedback</h1>
+        <p className="lg:w-2/3 mx-auto leading-relaxed text-base font-semibold">Your response will help us to improve<br/> & help people to give you more services with best quality and best price</p>
       </div>
       <div className="lg:w-1/2 md:w-2/3 mx-auto">
         <div className="flex flex-wrap -m-2">
@@ -32,8 +32,8 @@ const Contact = () => {
           <div className="p-2 w-full">
             <Link href={'/sellersuccess'}><button className="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded-full text-lg">Send Response</button></Link>
           </div>
-          <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-            <a className="text-green-500">example@email.com</a>
+          {/* <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+            <a className="text-green-500">Vmart@email.com</a>
             <p className="leading-normal my-5">49 Smith St.
               <br/>Saint Cloud, MN 56301
             </p>
@@ -60,7 +60,7 @@ const Contact = () => {
                 </svg>
               </a>
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

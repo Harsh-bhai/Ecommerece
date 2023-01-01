@@ -95,7 +95,7 @@ const Navbar = ({ cart, logout }) => {
           </div>
         </div>
         <div className="right flex flex-col items-center space-y-4 md:flex-row md:space-y-0">
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <div className=" xl:w-96">
               <div className="input-group relative flex items-stretch w-full rounded">
                 <input
@@ -127,7 +127,7 @@ const Navbar = ({ cart, logout }) => {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="mini flex justify-center items-center mr-6">
             {console.log(login, "login")}
@@ -139,6 +139,7 @@ const Navbar = ({ cart, logout }) => {
                 Logout
               </button>
               
+              
             ) : (
               <Link href={"/login"}>
                 <button className=" text-white bg-green-600 mx-8  py-2 px-6 focus:outline-none hover:bg-green-700 rounded-full text-lg">
@@ -147,8 +148,8 @@ const Navbar = ({ cart, logout }) => {
               </Link>
             )}
             <Link href={"/cart"}>
-              <div className="flex">
-                <AiOutlineShoppingCart className="text-3xl  cursor-pointer" />
+              <div className="flex  cursor-pointer">
+                <AiOutlineShoppingCart className="text-3xl" />
                 <p className=" text-xl">({cart.length})</p>
               </div>
             </Link>
