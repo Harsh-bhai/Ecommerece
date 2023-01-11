@@ -130,7 +130,6 @@ const Navbar = ({ cart, logout }) => {
           </div> */}
 
           <div className="mini flex justify-center items-center mr-6">
-            {console.log(login, "login")}
             {login ? (
               <button
                 onClick={logout}

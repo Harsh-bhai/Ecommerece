@@ -7,7 +7,6 @@ const Sellerform = () => {
   const Router=useRouter()
 
 const [form, setform] = useState({firstname:'',lastname:'',phone:'',email:'',city:'',state:'',pincode:''})
-console.log(form)
 const handlechange= ( e ) => {
   setform({...form,[e.target.name]:e.target.value})
 }
@@ -15,7 +14,7 @@ const handlesubmit= async( e ) => {
   e.preventDefault()
   const data = {...form };
 
-  let a=await fetch('http://localhost:1337/api/sellers', {
+  let a=await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/sellers`, {
     method: 'POST', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',
@@ -23,7 +22,6 @@ const handlesubmit= async( e ) => {
     body: JSON.stringify(data),
   })
   let prod=await a.json()
-  console.log(prod,"hereprod")
   Router.push("/sellersuccess")
   
 }

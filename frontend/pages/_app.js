@@ -1,9 +1,12 @@
 import Navbar from "../components/navbar";
 import "../styles/globals.css";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import NextNProgress from "nextjs-progressbar";
 import Footer from "../components/footer";
 import Head from "next/head";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function MyApp({ Component, pageProps }) {
   <Head>
     <meta
@@ -23,11 +26,17 @@ function MyApp({ Component, pageProps }) {
       console.error(error);
       localStorage.clear();
     }
+    // let token=localStorage.getItem("jwtoken")
+    // if( token){
+    //   setUser({value:token})
+    // }
   }, []);
 
   const [cart, setCart] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
   const [reloadkey, setReloadkey] = useState(1);
+  let Router=useRouter()
+  // const [user, setUser] = useState({value:null})
   const savecart = (mycart) => {
     localStorage.setItem("cartstate", JSON.stringify(mycart));
     let subt = 0;
@@ -36,7 +45,6 @@ function MyApp({ Component, pageProps }) {
 
       localStorage.setItem("subtotal", subtotal);
     } else {
-      console.log(true);
       for (let i = 0; i < cart.length; i++) {
         subt = subt + mycart[i][1];
       }
@@ -44,12 +52,21 @@ function MyApp({ Component, pageProps }) {
 
       localStorage.setItem("subtotal", subtotal);
     }
-    console.log("mycart", mycart);
   };
   const addtocart = (item, qty, price) => {
     let mycart = cart;
     for (let index = 0; index < qty; index++) {
       mycart.push([item, price]);
+      toast.success('Item Added', {
+        position: "bottom-right",
+        autoClose: 1000 ,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     }
     setCart(mycart);
     savecart(mycart);
@@ -73,6 +90,7 @@ function MyApp({ Component, pageProps }) {
   const logout = () => {
     localStorage.removeItem("jwtoken");
     setReloadkey(Math.random());
+    Router.reload()
   };
   return (
     <>
@@ -91,6 +109,20 @@ function MyApp({ Component, pageProps }) {
         height={3}
         showOnShallow={true}
       />
+      <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
+{/* Same as */}
+<ToastContainer />
       <Component
         cart={cart}
         addtocart={addtocart}

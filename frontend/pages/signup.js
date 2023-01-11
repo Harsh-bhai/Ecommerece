@@ -49,8 +49,6 @@ const Signup = () => {
     })
   let response =await res.json()
   localStorage.setItem('jwtoken',response.jwt)
-  console.log("hehe",response.jwt)
-  console.log(response)
     setemail("")
     setpassword("")
     setusername("")

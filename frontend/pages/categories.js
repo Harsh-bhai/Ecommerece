@@ -15,7 +15,6 @@ const Categories = ({products}) => {
       </div>
       <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
 
-        {console.log(products)}
         {products.data.map((item)=>{
           return(
             <Link key={item.attributes.id} href={`/${item.attributes.pageurl}`}><div className="p-4 md:w-1/3 sm:mb-0 mb-6 cursor-pointer hover:scale-105 shadow-lg rounded-xl transiton transition-transform delay-50  hover:border-none">
@@ -44,9 +43,8 @@ export default Categories
 
 export async function getServerSideProps(context) {
   let headers={Authorization:process.env.getproductstoken}
-  let a=await fetch('http://localhost:1337/api/categories-infos?populate=*',{headers:headers})
+  let a=await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/categories-infos?populate=*`,{headers:headers})
   let products=await a.json()
-
   return {
     props: {products}, // will be passed to the page component as props
   }
