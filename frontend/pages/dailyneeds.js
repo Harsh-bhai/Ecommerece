@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 
 const Dailyneeds = ({products}) => {
-  console.log(products.data, "hre");
   return (
     <div>
       <section className="text-gray-600 body-font">
@@ -17,7 +16,7 @@ const Dailyneeds = ({products}) => {
               return (<>
                 <Link
                   key={item.attributes.slug}
-                  href={`http://localhost:3000/product/${item.attributes.slug}`}
+                  href={`${process.env.NEXT_PUBLIC_FHOST}/product/${item.attributes.slug}`}
                   // href={`http://localhost:3000/product/apple`}
                 >
                   <div className="lg:w-1/4 md:w-1/2 p-4 w-full border rounded-lg flex flex-col items-center shadow-lg cursor-pointer hover:scale-110 transiton transition-transform delay-50 hover:shadow-none hover:border-none">

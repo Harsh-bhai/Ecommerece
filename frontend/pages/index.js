@@ -83,11 +83,11 @@ export default function Home({ fruits, Dairyproducts, Groceries }) {
   return (
     <div>
 
-      <div className="imgslider relative mb-1">
+      <Link href={'/categories'}><div className="imgslider relative mb-1">
         <Carousel/>
        
         
-      </div>
+      </div></Link>
       
 
       <style jsx>
@@ -134,7 +134,7 @@ export default function Home({ fruits, Dairyproducts, Groceries }) {
 
       <div className=" bg-gray-100 flex flex-col justify-center ">
         <div className="h-1 bg-gray-200 rounded overflow-hidden">
-          <div className="w-24 h-full bg-green-500"></div>
+          <div className="w-72 h-full bg-green-500"></div>
         </div>
         <div className="flex  sm:flex-row flex-col  py-6 ">
           <h1 className="sm:w-2/5 text-gray-900 font-semibold title-font  ml-20 mb-2 sm:mb-0 text-5xl">
@@ -199,7 +199,7 @@ export default function Home({ fruits, Dairyproducts, Groceries }) {
       </div>
       <div className=" bg-gray-100 flex flex-col justify-center ">
         <div className="h-1 bg-gray-200 rounded overflow-hidden">
-          <div className="w-24 h-full bg-green-500"></div>
+          <div className="w-96 h-full bg-green-500"></div>
         </div>
         <div className="flex  sm:flex-row flex-col  py-6 ">
           <h1 className="sm:w-2/5 text-gray-900 font-semibold title-font  ml-20 mb-2 sm:mb-0 text-5xl">
@@ -264,7 +264,7 @@ export default function Home({ fruits, Dairyproducts, Groceries }) {
       </div>
       <div className=" bg-gray-100 flex flex-col justify-center ">
         <div className="h-1 bg-gray-200 rounded overflow-hidden">
-          <div className="w-24 h-full bg-green-500"></div>
+          <div className="w-72 h-full bg-green-500"></div>
         </div>
         <div className="flex  sm:flex-row flex-col  py-6 ">
           <h1 className="sm:w-2/5 text-gray-900 font-semibold title-font  ml-20 mb-2 sm:mb-0 text-5xl">
@@ -334,14 +334,14 @@ export default function Home({ fruits, Dairyproducts, Groceries }) {
 export async function getServerSideProps(context) {
   let headers = { Authorization: process.env.getproductstoken };
   let a = await fetch(
-    "http://localhost:1337/api/products?filters[category][$contains]=Fruits&populate=*",
+    `${process.env.NEXT_PUBLIC_HOST}/api/products?filters[category][$contains]=Fruits&populate=*`,
     {
       headers: headers,
     }
   );
   let fruits = await a.json();
   let b = await fetch(
-    "http://localhost:1337/api/products?filters[category][$contains]=Dairy&populate=*",
+    `${process.env.NEXT_PUBLIC_HOST}/api/products?filters[category][$contains]=Dairy&populate=*`,
     {
       headers: headers,
     }
@@ -349,7 +349,7 @@ export async function getServerSideProps(context) {
   let Dairyproducts = await b.json();
 
   let c = await fetch(
-    "http://localhost:1337/api/products?filters[category][$contains]=Groceries&populate=*",
+    `${process.env.NEXT_PUBLIC_HOST}/api/products?filters[category][$contains]=Groceries&populate=*`,
     {
       headers: headers,
     }

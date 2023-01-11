@@ -10,6 +10,16 @@ const Login = () => {
   useEffect(() => {
     if (localStorage.getItem("jwtoken")) {
       Router.push("/");
+      toast.success('Logged In SucessFully', {
+        position: "bottom-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     }
   }, []);
 
@@ -42,46 +52,59 @@ const Login = () => {
         })
         let response=await res.json()
         if(response.error){
-          alert(response.error.message)
+          toast.error(`${response.error.message}`, {
+            position: "bottom-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
           console.log(response.error)
         }
         else{
           Router.push('/')
           localStorage.setItem("jwtoken",response.jwt)
+          Router.reload()
+          setTimeout(() => {
+            
+            toast.success('Logged In SucessFully!', {
+              position: "bottom-right",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              });
+          }, 1000);
+            
         }
-        console.log(response)
         
         
 
-      // toast.success("Logged In Successfully", {
-      //   position: "top-left",
-      //   autoClose: 1000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      // });
       
       setpassword("");
       setidentifier("");
-    console.log("hehe");
-    console.log("hogyabhai");
   };
   return (
     <div>
-      {/* <ToastContainer
-        position="top-left"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      /> */}
 
+<ToastContainer
+position="bottom-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
       <div className="min-h-screen green-700ull flex  justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>

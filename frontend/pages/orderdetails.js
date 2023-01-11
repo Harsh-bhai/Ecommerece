@@ -2,42 +2,41 @@ import Link from "next/link";
 import React from "react";
 
 const Orderdetails = ({ orders }) => {
-  console.log(orders, "ajlkas");
   return (
-    <div>
+    <div className="">
       <h1 className="text-4xl font-semibold m-8">Order Details</h1>
       <div className="h-1 bg-gray-200 rounded overflow-hidden">
         <div className="w-64 h-full bg-green-500"></div>
       </div>
-      <div className="flex flex-col mx-10 justify-center">
+      <div className="flex flex-col  mx-10 justify-center ">
         <div className="flex space-x-4  items-center">
-          <h2 className="text-2xl font-semibold m-8">Order Id : </h2>
-          <div className="text-2xl ">{orders.attributes.orderid}</div>
+          <h2 className="md:text-2xl text-lg font-semibold m-8">Order Id : </h2>
+          <div className="md:text-2xl text-lg ">{orders.attributes.orderid}</div>
         </div>
         <div className="flex space-x-4  items-center">
-          <h2 className="text-2xl font-semibold m-8">Address : </h2>
-          <div className="text-2xl flex flex-wrap">
+          <h2 className="md:text-2xl text-lg font-semibold m-8">Address : </h2>
+          <div className="md:text-2xl text-lg flex flex-wrap">
             {orders.attributes.address}
           </div>
           <br />{" "}
         </div>
         <div className="flex space-x-4  items-center">
-          <h2 className="text-2xl font-semibold m-8">
+          <h2 className="md:text-2xl text-lg font-semibold m-8">
             Date and time of order :{" "}
           </h2>
-          <div className="text-2xl ">
+          <div className="md:text-2xl text-lg ">
             {orders.attributes.paymentinfo.TXNDATE}
           </div>
         </div>
         <div className="flex space-x-4  items-center">
-          <h2 className="text-2xl font-semibold m-8">Delivery Status :</h2>
-          <div className="text-2xl text-red-600 ">Pending</div>
+          <h2 className="md:text-2xl text-lg font-semibold m-8">Delivery Status :</h2>
+          <div className="md:text-2xl text-lg text-red-600 ">Pending</div>
         </div>
       </div>
       <div className="h-1 bg-gray-200 rounded overflow-hidden my-6">
         <div className="w-0 h-full bg-green-500 "></div>
       </div>
-      <div className="flex  ">
+      <div className="flex  md:flex-row flex-col-reverse   ">
         <div className="w-1/5 mx-10">
           <div className="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
             <div className="flex relative pb-20">
@@ -163,18 +162,17 @@ const Orderdetails = ({ orders }) => {
               return (
                 <div
                   key={orders.products}
-                  className="flex flex-col m-12 shadow-green-300 shadow-lg cursor-pointer rounded-lg space-y-8 p-8 h-72 transition-transform transform hover:scale-105"
+                  className="flex flex-col m-2 md:m-12 shadow-green-300 shadow-lg cursor-pointer rounded-lg space-y-8 p-8 h-72 transition-transform transform hover:scale-105 my-4"
                 >
-                  {console.log("items", item)}
                   <div className="main flex space-x-4  ">
-                    <div className="1 w-1/3 ">
+                    <div className="1 w-1/4 md:w-1/3 ">
                       <img
                         className="w-36  "
                         src={item[0].image.data.attributes.name}
                         alt=""
                       />
                     </div>
-                    <div className="1 w-1/3  ">
+                    <div className="1 w-1/2 md:w-1/3  ">
                       <div className="flex flex-col space-y-4">
                         <p className="font-bold">{item[0].title}</p>
                         <p className="font-semibold">
@@ -187,9 +185,9 @@ const Orderdetails = ({ orders }) => {
                         </p>
                       </div>
                     </div>
-                    <div className="1 w-1/3 flex items-center ">
+                    <div className="1 w-1/4 md:w-1/3 flex items-center  ">
                       <Link href={`/product/${item[0].slug}`}>
-                        <button className=" text-white bg-green-600 mx-8  py-2 px-6 focus:outline-none hover:bg-green-700 rounded-full text-lg">
+                        <button className=" text-white bg-green-600 md:mx-8  py-2 px-6 focus:outline-none hover:bg-green-700 rounded-full md:text-lg text-sm">
                           Buy Again
                         </button>
                       </Link>
@@ -209,7 +207,7 @@ export default Orderdetails;
 export async function getServerSideProps(context) {
   let headers = { Authorization: process.env.getproductstoken };
   let a = await fetch(
-    "http://localhost:1337/api/orders?publicationState=preview&populate=*&sort=createdAt",
+    `${process.env.NEXT_PUBLIC_HOST}/api/orders?publicationState=preview&populate=*&sort=createdAt`,
     { headers: headers }
   );
   let order = await a.json();

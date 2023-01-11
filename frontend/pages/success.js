@@ -1,84 +1,111 @@
 import Link from "next/link";
-import React from "react";
-
+import React,{useEffect} from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Success = ({ orders }) => {
-  console.log(orders,"orders")
 
+useEffect(() => {
+  toast.success('Order Placed Successfully', {
+    position: "bottom-right",
+    autoClose: 1000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    });
+
+
+}, [])
 
 
   return (
+    
     <div>
       <section className="text-gray-600 body-font">
+            <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
         <h1 className="text-3xl font-semibold text-green-600 m-8 text-center">
-              Orders Placed Sucessfully !!!
+              Thanks For Shopping!!!
             </h1>
         <div className="container px-5 py-4 mx-auto">
           <h1 className="text-center font-semibold text-3xl my-4">
             Here is Your Invoice
           </h1>
-          <div className="w-full flex justify-center align-center">
+          <div className=" flex justify-center align-center ">
             
-            <table className=" table border-separate border-spacing-4 rounded-lg p-4 border border-green-400 w-60 bg-green-200">
+            <table className=" table border-separate border-spacing-4 rounded-lg p-4 border border-green-400   bg-green-200 ">
               <tbody>
                 <tr>
-                  <td className="border border-green-200 w-60">MID</td>
-                  <td className="border border-green-200 w-60">
+                  <td className="border border-green-200 ">MID</td>
+                  <td className="border border-green-200 ">
                     {orders.MID}
                   </td>
                 </tr>
                 <tr>
-                  <td className="border border-green-200 w-60">TXNID</td>
-                  <td className="border border-green-200 w-60">
+                  <td className="border border-green-200 ">TXNID</td>
+                  <td className="border border-green-200 ">
                     {orders.TXNID}
                   </td>
                 </tr>
                 <tr>
-                  <td className="border border-green-200 w-60">STATUS</td>
-                  <td className="border border-green-200 w-60">{orders.STATUS}</td>
+                  <td className="border border-green-200 ">STATUS</td>
+                  <td className="border border-green-200 ">{orders.STATUS}</td>
                 </tr>
                 <tr>
-                  <td className="border border-green-200 w-60">ORDERID</td>
-                  <td className="border border-green-200 w-60">{orders.ORDERID}</td>
+                  <td className="border border-green-200 ">ORDERID</td>
+                  <td className="border border-green-200 ">{orders.ORDERID}</td>
                 </tr>
                 <tr>
-                  <td className="border border-green-200 w-60">RESPMSG</td>
-                  <td className="border border-green-200 w-60">{orders.RESPMSG}</td>
+                  <td className="border border-green-200 ">RESPMSG</td>
+                  <td className="border border-green-200 ">{orders.RESPMSG}</td>
                 </tr>
                 <tr>
-                  <td className="border border-green-200 w-60">TXNDATE</td>
-                  <td className="border border-green-200 w-60">
+                  <td className="border border-green-200 ">TXNDATE</td>
+                  <td className="border border-green-200 ">
                     {orders.TXNDATE}
                   </td>
                 </tr>
                 <tr>
-                  <td className="border border-green-200 w-60">BANKNAME</td>
-                  <td className="border border-green-200 w-60">
+                  <td className="border border-green-200 ">BANKNAME</td>
+                  <td className="border border-green-200 ">
                     {orders.BANKNAME}
                   </td>
                 </tr>
                 <tr>
-                  <td className="border border-green-200 w-60">CURRENCY</td>
-                  <td className="border border-green-200 w-60">{orders.CURRENCY}</td>
+                  <td className="border border-green-200 ">CURRENCY</td>
+                  <td className="border border-green-200 ">{orders.CURRENCY}</td>
                 </tr>
                 <tr>
-                  <td className="border border-green-200 w-60">RESPCODE</td>
-                  <td className="border border-green-200 w-60">{orders.RESPCODE}</td>
+                  <td className="border border-green-200 ">RESPCODE</td>
+                  <td className="border border-green-200 ">{orders.RESPCODE}</td>
                 </tr>
                 <tr>
-                  <td className="border border-green-200 w-60">BANKTXNID</td>
-                  <td className="border border-green-200 w-60">{orders.BANKTXNID}</td>
+                  <td className="border border-green-200 ">BANKTXNID</td>
+                  <td className="border border-green-200 ">{orders.BANKTXNID}</td>
                 </tr>
                 <tr>
-                  <td className="border border-green-200 w-60">TXNAMOUNT</td>
-                  <td className="border border-green-200 w-60 text-green-700" >₹{orders.TXNAMOUNT}</td>
+                  <td className="border border-green-200 ">TXNAMOUNT</td>
+                  <td className="border border-green-200  text-green-700" >₹{orders.TXNAMOUNT}</td>
                 </tr>
                 <tr>
-                  <td className="border border-green-200 w-60">GATEWAYNAME</td>
-                  <td className="border border-green-200 w-60">{orders.GATEWAYNAME}</td>
+                  <td className="border border-green-200 ">GATEWAYNAME</td>
+                  <td className="border border-green-200 ">{orders.GATEWAYNAME}</td>
                 </tr>
                 <tr>
-                  <td className="border border-green-200 w-60">PAYMENTMODE</td>
-                  <td className="border border-green-200 w-60">{orders.PAYMENTMODE}</td>
+                  <td className="border border-green-200 ">PAYMENTMODE</td>
+                  <td className="border border-green-200 ">{orders.PAYMENTMODE}</td>
                 </tr>
                
               </tbody>
@@ -103,7 +130,7 @@ export default Success;
 export async function getServerSideProps(context) {
   let headers = { Authorization: process.env.getproductstoken };
   let a = await fetch(
-    "http://localhost:1337/api/orders?publicationState=preview&populate=*&sort=createdAt",
+    `${process.env.NEXT_PUBLIC_HOST}/api/orders?publicationState=preview&populate=*&sort=createdAt`,
     { headers: headers }
   );
   let order = await a.json();

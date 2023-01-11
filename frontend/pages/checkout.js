@@ -21,17 +21,15 @@ const Checkout = ({ subtotal,cart}) => {
   
     const data = { orderid: orderid, amount: subtotal, ...form, cart: cart };
 
-    let a = await fetch("http://localhost:1337/api/orders/pretransaction", {
+    let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/orders/pretransaction`, {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
-        // "Authorization ":process.env.getproductstoken
-      },
+        // Authorization: `Bearer ${localStorage.getItem("jwtoken")}`,   
+         },
       body: JSON.stringify(data),
     });
     let content = await a.json();
-    console.log(data,"data")
-    console.log(content, "here");
 
     var config = {
       'root': "",
@@ -62,7 +60,7 @@ const Checkout = ({ subtotal,cart}) => {
       }
 
   return (
-    <div className="flex flex-col justify-center items-center my-20">
+    <div className="flex flex-col mx-4 justify-center items-center my-20">
       <h1 className="text-3xl my-10 font-semibold">Checkout</h1>
     
       <Script id="script"

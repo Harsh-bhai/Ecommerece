@@ -1,19 +1,71 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Slug = ({ product, addtocart }) => {
   const router = useRouter();
   const { slug } = router.query;
-  const [available, setAvailable] = useState(false)
+  const [available, setAvailable] = useState(false);
+  const [pinumber, setPinumber] = useState();
 
-  const checkavialability= (  ) => {
-    setAvailable(true)
-  }
+  const handlechange = (e) => {
+    if (e.target.name == "pincode") {
+      setPinumber(e.target.value);
+    }
+  };
+
+  const handlesubmit = async (e) => {
+    e.preventDefault();
+  };
+
+  const checkavialability = () => {
+    let pincodes = [492001, 490001, 491223, 491771, 491226, 490036];
+    if (pincodes.includes(parseInt(pinumber))) {
+      setAvailable(true);
+      toast.success('In Stock', {
+        position: "bottom-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        })
+    }
+    else{
+      setAvailable(false)
+      toast.error('Sorry ,Out Of Stock', {
+        position: "bottom-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        })
+    }
+  };
   return (
     <>
       <section className="text-gray-600 body-font overflow-hidden">
+      <ToastContainer
+position="bottom-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
         <div className="container px-5 py-24 mx-auto">
+          
           <div className=" mx-auto flex flex-wrap">
             <div className="flex justify-center items-start md:w-1/2">
               <img
@@ -94,22 +146,33 @@ const Slug = ({ product, addtocart }) => {
                 </div>
 
                 <div className="flex space-x-10 mt-20">
-                  <form className="border-black flex flex-col">
+                  <form
+                    className="border-black flex flex-col"
+                    onSubmit={handlesubmit}
+                  >
                     <div className="form-floating flex">
                       <input
+                        onChange={handlechange}
+                        value={pinumber}
                         className=" rounded-md w-52 h-10 border-10 border-black p-4"
-                        type="text"
+                        type="number"
+                        name="pincode"
                         placeholder="Enter Delivery Pincode"
                         required
                       />
-                     <button onClick={()=>{checkavialability()}} className=" text-white bg-green-500 border-0  px-6 focus:outline-none hover:bg-green-600 rounded-full">
-                    Check
-                  </button>
+                      <button
+                        onClick={() => {
+                          checkavialability();
+                        }}
+                        className=" text-white bg-green-500 border-0  px-6 focus:outline-none hover:bg-green-600 rounded-full"
+                      >
+                        Check
+                      </button>
                     </div>
-                     { available && <p className="text-green-700 font-bold mx-4">In Stock</p>}
+                    {available && (
+                      <p className="text-green-700 font-bold mx-4">In Stock</p>
+                    )}
                   </form>
-
-                  
                 </div>
                 <hr />
                 <div>
