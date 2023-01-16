@@ -90,12 +90,28 @@ function MyApp({ Component, pageProps }) {
   const logout = () => {
     localStorage.removeItem("jwtoken");
     setReloadkey(Math.random());
-    Router.reload()
+    // Router.reload()
+    toast.success('Logged Out', {
+      position: "bottom-right",
+      autoClose: 1000 ,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
   };
+
+
+  const reloadNav= (  ) => {
+    setReloadkey(Math.random())
+  }
   return (
     <>
-      <Navbar
+      <Navbar key={reloadkey}
         cart={cart}
+        reloadNav={reloadNav}
         addtocart={addtocart}
         removefromcart={removefromcart}
         clearcart={clearcart}
@@ -124,6 +140,7 @@ theme="light"
 {/* Same as */}
 <ToastContainer />
       <Component
+      reloadNav={reloadNav}
         cart={cart}
         addtocart={addtocart}
         removefromcart={removefromcart}
