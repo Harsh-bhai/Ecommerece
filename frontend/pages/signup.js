@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 
 
 
-const Signup = () => {
+const Signup = ({reloadNav}) => {
   let Router=useRouter()
       useEffect(() => {
         if(localStorage.getItem("jwtoken")){
@@ -53,7 +53,7 @@ const Signup = () => {
     setpassword("")
     setusername("")
     toast.success('Account Created Sucessfully', {
-      position: "top-left",
+      position: "bottom-right",
       autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -62,13 +62,18 @@ const Signup = () => {
       progress: undefined,
       });
       Router.push("/login")
+      reloadNav()
+    // setTimeout(() => {
+    //   Router.reload()
+    // }, 1000);
+    
       
 
   }
   return (
     <div>
       <ToastContainer
-position="top-left"
+position="bottom-right"
 autoClose={1000}
 hideProgressBar={false}
 newestOnTop={false}

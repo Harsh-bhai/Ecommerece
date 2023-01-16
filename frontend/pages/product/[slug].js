@@ -196,7 +196,7 @@ export default Slug;
 export async function getServerSideProps(context) {
   let headers = { Authorization: process.env.getproductstoken };
   let a = await fetch(
-    "http://localhost:1337/api/products?filters[slug]=" +
+    `${process.env.NEXT_PUBLIC_HOST}/api/products?filters[slug]=` +
       context.query.slug +
       "&populate=*",
     {
