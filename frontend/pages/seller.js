@@ -20,9 +20,8 @@ const Seller = () => {
                 Why Sell Online
               </h1>
               <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">
-                Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                taxidermy. Gastropub indxgo juice poutine, ramps microdosing
-                banh mi pug.
+                Best product, Best deals, Best offers, Quality product, 
+                Best price, Instant delivery
               </p>
               <div className="flex mt-6 justify-center">
                 <div className="w-16 h-1 rounded-full bg-green-500 inline-flex"></div>
