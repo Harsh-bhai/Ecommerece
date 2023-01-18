@@ -1,7 +1,7 @@
 // path: ./src/api/restaurant/controllers/restaurant.js
 
 const { createCoreController } = require("@strapi/strapi").factories;
-const PaytmChecksum = require("paytmChecksum");
+const PaytmChecksum = require("paytmchecksum");
 const https = require("https");
 
 module.exports = createCoreController("api::order.order", ({ strapi }) => ({
