@@ -12,7 +12,7 @@ const Fruits = ({ products }) => {
         <div className="container px-5 py-10
          mx-auto">
           <div className="flex flex-wrap -m-4">
-            {products.data.map((item) => {
+            {products.data && products.data.map((item) => {
               return (<>
                 <Link
                   key={item.attributes.slug}
