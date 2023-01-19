@@ -35,7 +35,7 @@ const Cart = ({ subtotal, cart, addtocart, removefromcart, clearcart }) => {
               Price
             </h3>
           </div>
-          {cart.map((item) => {
+          {cart && cart.map((item) => {
             return (
               <div
                 key={item}

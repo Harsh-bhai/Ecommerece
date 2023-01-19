@@ -22,7 +22,7 @@ const Orders = ({ orders }) => {
           <div className="w-80 h-full bg-green-500"></div>
         </div>
 
-          {orders.data.map((item) => {
+          {orders.data && orders.data.map((item) => {
             
             return (
               <Link key={item} href={'/orderdetails'}><div
