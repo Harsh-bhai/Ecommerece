@@ -61,7 +61,7 @@ export default Fruits;
 export async function getServerSideProps(context) {
   let headers = { Authorization: process.env.getproductstoken };
   let a = await fetch(
-    "http://localhost:1337/api/products?filters[category][$contains]=Fruits&populate=*",
+    `${process.env.NEXT_PUBLIC_HOST}/api/products?filters[category][$contains]=Fruits&populate=*`,
     {
       headers: headers,
     }
