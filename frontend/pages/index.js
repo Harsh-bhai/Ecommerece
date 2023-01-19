@@ -165,7 +165,7 @@ export default function Home({ fruits, Dairyproducts, Groceries }) {
                       ref={refright}
                       className="w-full h-fit py-10 px-8 space-x-11 flex items-center overflow-hidden product-container cursor-pointer  md:translate-x-0 transition-transform transform duration-700"
                     >
-                      {fruits.data.map((item) => {
+                      {fruits && fruits.data.map((item) => {
                         return (
                           <Link key={item} href={`/product/${item.attributes.slug}`}><div className="Horizontal Scroll bar ">
                             <div className=" w-80 text-center items-center justify-center space-y-2 shadow-lg rounded-lg p-10 hover:scale-110 transiton transition-transform delay-50 hover:border-none shadow-green-300">
@@ -230,7 +230,7 @@ export default function Home({ fruits, Dairyproducts, Groceries }) {
                       ref={refright1}
                       className="w-full h-fit py-10 px-8 space-x-11 flex items-center overflow-hidden product-container cursor-pointer  md:translate-x-0 transition-transform transform duration-700"
                     >
-                      {Dairyproducts.data.map((item) => {
+                      {Dairyproducts && Dairyproducts.data.map((item) => {
                         return (
                           <Link key={item} href={`/product/${item.attributes.slug}`}><div className="Horizontal Scroll bar ">
                             <div className=" w-80 text-center items-center justify-center space-y-2 shadow-lg rounded-lg p-10 hover:scale-110 transiton transition-transform delay-50 hover:border-none shadow-green-300">
@@ -295,7 +295,7 @@ export default function Home({ fruits, Dairyproducts, Groceries }) {
                       ref={refright2}
                       className="w-full h-fit py-10 px-8 space-x-11 flex items-center overflow-hidden product-container cursor-pointer  md:translate-x-0 transition-transform transform duration-700"
                     >
-                      {Groceries.data.map((item) => {
+                      {Groceries && Groceries.data.map((item) => {
                         return (
                           <Link key={item} href={`/product/${item.attributes.slug}`}><div className="Horizontal Scroll bar ">
                             <div className=" w-80 text-center items-center justify-center space-y-2 shadow-lg rounded-lg p-10 hover:scale-110 transiton transition-transform delay-50 hover:border-none shadow-green-300">
