@@ -1,7 +1,12 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Link from 'next/link'
 
 const Categories = ({products}) => {
+  useEffect(() => {
+    console.log(products,"here")
+
+  }, [])
+  
   return (
     <div><section className="text-gray-600 body-font">  
     <div className="container px-5 py-14 mx-auto">
@@ -15,7 +20,7 @@ const Categories = ({products}) => {
       </div>
       <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
 
-        {products.data.map((item)=>{
+        {products.data && products.data.map((item)=>{
           return(
             <Link key={item.attributes.id} href={`/${item.attributes.pageurl}`}><div className="p-4 md:w-1/3 sm:mb-0 mb-6 cursor-pointer hover:scale-105 shadow-lg rounded-xl transiton transition-transform delay-50  hover:border-none">
           <div className="rounded-lg h-64 overflow-hidden">
