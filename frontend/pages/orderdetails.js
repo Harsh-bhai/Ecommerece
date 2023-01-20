@@ -11,12 +11,12 @@ const Orderdetails = ({ orders }) => {
       <div className="flex flex-col  mx-10 justify-center ">
         <div className="flex space-x-4  items-center">
           <h2 className="md:text-2xl text-lg font-semibold m-8">Order Id : </h2>
-          <div className="md:text-2xl text-lg ">{orders.attributes.orderid}</div>
+          <div className="md:text-2xl text-lg ">{orders && orders.attributes.orderid}</div>
         </div>
         <div className="flex space-x-4  items-center">
           <h2 className="md:text-2xl text-lg font-semibold m-8">Address : </h2>
           <div className="md:text-2xl text-lg flex flex-wrap">
-            {orders.attributes.address}
+            {orders && orders.attributes.address}
           </div>
           <br />{" "}
         </div>
@@ -25,7 +25,7 @@ const Orderdetails = ({ orders }) => {
             Date and time of order :{" "}
           </h2>
           <div className="md:text-2xl text-lg ">
-            {orders.attributes.paymentinfo.TXNDATE}
+            {orders && orders.attributes.paymentinfo.TXNDATE}
           </div>
         </div>
         <div className="flex space-x-4  items-center">
@@ -157,11 +157,11 @@ const Orderdetails = ({ orders }) => {
           </div>
         </div>
         <div className="w-full">
-          {orders.attributes.products &&
+          {orders && orders.attributes.products &&
             orders.attributes.products.map((item) => {
               return (
                 <div
-                  key={orders.products}
+                  key={orders && orders.products}
                   className="flex flex-col m-2 md:m-12 shadow-green-300 shadow-lg cursor-pointer rounded-lg space-y-8 p-8 h-72 transition-transform transform hover:scale-105 my-4"
                 >
                   <div className="main flex space-x-4  ">
