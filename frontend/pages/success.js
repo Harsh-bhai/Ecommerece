@@ -50,62 +50,62 @@ theme="light"
                 <tr>
                   <td className="border border-green-200 ">MID</td>
                   <td className="border border-green-200 ">
-                    {orders.MID}
+                    {orders && orders.MID}
                   </td>
                 </tr>
                 <tr>
                   <td className="border border-green-200 ">TXNID</td>
                   <td className="border border-green-200 ">
-                    {orders.TXNID}
+                    {orders && orders.TXNID}
                   </td>
                 </tr>
                 <tr>
                   <td className="border border-green-200 ">STATUS</td>
-                  <td className="border border-green-200 ">{orders.STATUS}</td>
+                  <td className="border border-green-200 ">{orders && orders.STATUS}</td>
                 </tr>
                 <tr>
                   <td className="border border-green-200 ">ORDERID</td>
-                  <td className="border border-green-200 ">{orders.ORDERID}</td>
+                  <td className="border border-green-200 ">{orders && orders.ORDERID}</td>
                 </tr>
                 <tr>
                   <td className="border border-green-200 ">RESPMSG</td>
-                  <td className="border border-green-200 ">{orders.RESPMSG}</td>
+                  <td className="border border-green-200 ">{orders && orders.RESPMSG}</td>
                 </tr>
                 <tr>
                   <td className="border border-green-200 ">TXNDATE</td>
                   <td className="border border-green-200 ">
-                    {orders.TXNDATE}
+                    {orders && orders.TXNDATE}
                   </td>
                 </tr>
                 <tr>
                   <td className="border border-green-200 ">BANKNAME</td>
                   <td className="border border-green-200 ">
-                    {orders.BANKNAME}
+                    {orders && orders.BANKNAME}
                   </td>
                 </tr>
                 <tr>
                   <td className="border border-green-200 ">CURRENCY</td>
-                  <td className="border border-green-200 ">{orders.CURRENCY}</td>
+                  <td className="border border-green-200 ">{orders && orders.CURRENCY}</td>
                 </tr>
                 <tr>
                   <td className="border border-green-200 ">RESPCODE</td>
-                  <td className="border border-green-200 ">{orders.RESPCODE}</td>
+                  <td className="border border-green-200 ">{orders && orders.RESPCODE}</td>
                 </tr>
                 <tr>
                   <td className="border border-green-200 ">BANKTXNID</td>
-                  <td className="border border-green-200 ">{orders.BANKTXNID}</td>
+                  <td className="border border-green-200 ">{orders && orders.BANKTXNID}</td>
                 </tr>
                 <tr>
                   <td className="border border-green-200 ">TXNAMOUNT</td>
-                  <td className="border border-green-200  text-green-700" >₹{orders.TXNAMOUNT}</td>
+                  <td className="border border-green-200  text-green-700" >₹{orders && orders.TXNAMOUNT}</td>
                 </tr>
                 <tr>
                   <td className="border border-green-200 ">GATEWAYNAME</td>
-                  <td className="border border-green-200 ">{orders.GATEWAYNAME}</td>
+                  <td className="border border-green-200 ">{orders && orders.GATEWAYNAME}</td>
                 </tr>
                 <tr>
                   <td className="border border-green-200 ">PAYMENTMODE</td>
-                  <td className="border border-green-200 ">{orders.PAYMENTMODE}</td>
+                  <td className="border border-green-200 ">{orders && orders.PAYMENTMODE}</td>
                 </tr>
                
               </tbody>
