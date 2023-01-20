@@ -28,7 +28,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     paytmParams.body = {
       requestType: "Payment",
       mid: process.env.MID,
-      websiteName: "V-Mart",
+      websiteName: "VMart",
       orderId: params.orderid,
       callbackUrl: `${process.env.NEXT_PUBLIC_HOST}/api/orders/posttransaction`,
       txnAmount: {
@@ -112,7 +112,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       },
       
     });
-    redirect(`${process.env.NEXT_PUBLIC_FHOST}/orders`)
+    params?ctx.redirect(`${process.env.NEXT_PUBLIC_FHOST}/orders`):ctx.redirect(`${process.env.NEXT_PUBLIC_FHOST}/success`)
 
 
     //     BANKNAME:
