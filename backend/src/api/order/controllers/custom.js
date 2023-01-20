@@ -15,7 +15,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       data: {
         email: params.email,
         orderid: params.orderid,
-        paymentinfo: null,
+        paymentinfo: params,
         products: params.cart,
         address: params.address,
         name: params.name,
