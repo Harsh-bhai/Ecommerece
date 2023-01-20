@@ -112,7 +112,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       },
       
     });
-    paymentinfo?ctx.redirect(`${process.env.NEXT_PUBLIC_FHOST}/success`):redirect(`${process.env.NEXT_PUBLIC_FHOST}/orders`)
+    redirect(`${process.env.NEXT_PUBLIC_FHOST}/orders`)
 
 
     //     BANKNAME:
