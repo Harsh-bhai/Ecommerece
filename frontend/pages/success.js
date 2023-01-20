@@ -39,7 +39,7 @@ theme="light"
         <h1 className="text-3xl font-semibold text-green-600 m-8 text-center">
               Thanks For Shopping!!!
             </h1>
-        <div className="container px-5 py-4 mx-auto">
+        {orders && <div className="container px-5 py-4 mx-auto">
           <h1 className="text-center font-semibold text-3xl my-4">
             Here is Your Invoice
           </h1>
@@ -111,7 +111,7 @@ theme="light"
               </tbody>
             </table>
           </div>
-        </div>
+        </div>}
         <div className="flex justify-center items-center">
         <Link href={"/orders"}>
               <button className="flex-shrink-0 rounded-full text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600  text-lg mt-10 sm:mt-0">
