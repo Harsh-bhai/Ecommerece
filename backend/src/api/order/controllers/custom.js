@@ -28,7 +28,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     paytmParams.body = {
       requestType: "Payment",
       mid: process.env.MID,
-      websiteName: "VMart",
+      websiteName: "YOUR_WEBSITE_NAME",
       orderId: params.orderid,
       callbackUrl: `${process.env.NEXT_PUBLIC_HOST}/api/orders/posttransaction`,
       txnAmount: {

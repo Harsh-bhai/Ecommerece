@@ -161,32 +161,32 @@ const Orderdetails = ({ orders }) => {
             orders.attributes.products.map((item) => {
               return (
                 <div
-                  key={orders && orders.products}
+                  key={orders.products}
                   className="flex flex-col m-2 md:m-12 shadow-green-300 shadow-lg cursor-pointer rounded-lg space-y-8 p-8 h-72 transition-transform transform hover:scale-105 my-4"
                 >
                   <div className="main flex space-x-4  ">
                     <div className="1 w-1/4 md:w-1/3 ">
                       <img
                         className="w-36  "
-                        src={item[0].image.data.attributes.name}
+                        src={item[0] && item[0].image.data.attributes.name}
                         alt=""
                       />
                     </div>
                     <div className="1 w-1/2 md:w-1/3  ">
                       <div className="flex flex-col space-y-4">
-                        <p className="font-bold">{item[0].title}</p>
+                        <p className="font-bold">{item[0] && item[0].title}</p>
                         <p className="font-semibold">
-                          Category :{item[0].category}
+                          Category :{item[0] && item[0].category}
                         </p>
 
-                        <p className="font-bold">₹{item[0].price}</p>
+                        <p className="font-bold">₹{item[0] && item[0].price}</p>
                         <p className="font-semibold">
-                          Quantity : {item[0].size}
+                          Quantity : {item[0] && item[0].size}
                         </p>
                       </div>
                     </div>
                     <div className="1 w-1/4 md:w-1/3 flex items-center  ">
-                      <Link href={`/product/${item[0].slug}`}>
+                      <Link href={`/product/${item[0] && item[0].slug}`}>
                         <button className=" text-white bg-green-600 md:mx-8  py-2 px-6 focus:outline-none hover:bg-green-700 rounded-full md:text-lg text-sm">
                           Buy Again
                         </button>
