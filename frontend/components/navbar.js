@@ -3,6 +3,10 @@ import { useRef, useState, useEffect } from "react";
 import { MdAccountCircle } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiFillCloseCircle, AiOutlineShoppingCart } from "react-icons/ai";
+import { BsGlobe2,BsCartCheck } from "react-icons/bs";
+import { BiCategoryAlt } from "react-icons/bi";
+import { VscFeedback } from "react-icons/vsc";
+import { FaHandshake } from "react-icons/fa";
 
 import Link from "next/link";
 const Navbar = ({ cart, logout }) => {
@@ -54,42 +58,43 @@ const Navbar = ({ cart, logout }) => {
             <Link href={"/about"}>
               <div
                 onClick={toggle}
-                className="hover:text-green-600 text-gray-700 cursor-pointer"
+                className="hover:text-green-600 flex justify-start mx-4 items-center space-x-4 text-gray-700 cursor-pointer"
               >
-                About
+                <BsGlobe2 className="md:hidden"/>
+                <p>About</p>
               </div>
             </Link>
             {/* <Link  href={"/services"}><div onClick={toggle} className='hover:text-green-600 text-gray-700 cursor-pointer'>Services</div></Link> */}
             <Link href={"/categories"}>
               <div
                 onClick={toggle}
-                className="hover:text-green-600 text-gray-700 cursor-pointer"
-              >
-                Categories
+                className="hover:text-green-600 flex justify-start mx-4 items-center space-x-4 text-gray-700 cursor-pointer"
+              ><BiCategoryAlt className="md:hidden"/>
+                <p>Categories</p>
               </div>
             </Link>
             <Link href={"/contact"}>
               <div
                 onClick={toggle}
-                className="hover:text-green-600 text-gray-700 cursor-pointer"
-              >
-                Feedback
+                className="hover:text-green-600 flex justify-start mx-4 items-center space-x-4 text-gray-700 cursor-pointer"
+              ><VscFeedback className="md:hidden"/>
+                <p>Feedback</p>
               </div>
             </Link>
             <Link href={"/seller"}>
               <div
                 onClick={toggle}
-                className="hover:text-green-600 text-gray-700 cursor-pointer"
-              >
-                Become a Seller
+                className="hover:text-green-600 flex justify-start mx-4 items-center space-x-4 text-gray-700 cursor-pointer"
+              ><FaHandshake className="md:hidden"/>
+                <p>Become a Seller</p>
               </div>
             </Link>
             <Link href={"/orders"}>
               <div
                 onClick={toggle}
-                className="hover:text-green-600 text-gray-700 cursor-pointer"
-              >
-                My Orders
+                className="hover:text-green-600 flex justify-start mx-4 items-center space-x-4 text-gray-700 cursor-pointer"
+              ><BsCartCheck className="md:hidden"/>
+               <p> My Orders</p>
               </div>
             </Link>
           </div>
