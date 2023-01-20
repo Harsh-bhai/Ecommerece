@@ -9,7 +9,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
   async pre(ctx) {
     var paytmParams = {};
     let params = ctx.request.body;
-    console.log(params);
+    console.log(params,"params");
 
     const entry = await strapi.entityService.create("api::order.order", {
       data: {
@@ -112,7 +112,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       },
       
     });
-    params?ctx.redirect(`${process.env.NEXT_PUBLIC_FHOST}/orders`):ctx.redirect(`${process.env.NEXT_PUBLIC_FHOST}/success`)
+    params?ctx.redirect(`${process.env.NEXT_PUBLIC_FHOST}/success`):ctx.redirect(`${process.env.NEXT_PUBLIC_FHOST}/orders`)
 
 
     //     BANKNAME:
