@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const About = () => {
@@ -30,7 +31,28 @@ const About = () => {
           </p>
         </section>
        
+        <section className="text-gray-600 body-font mx-40">
+  <h1 className=' my-10 font-bold text-green-700 text-3xl text-center '>Developer</h1>
 
+    <div className="container mx-auto flex px-5 py-4 md:flex-row flex-col items-center">
+      <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+        <img className="object-cover object-center rounded" alt="hero" src="white1.png"/>
+      </div>
+      <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+        <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Harsh Dewangan
+        </h1>
+        <h2 className='text-green-700 font-bold mb-2'>Web Developer ,Data Science </h2>
+        <p className="mb-8 leading-relaxed">Hi ,I am Harsh Dewangan ,Student at Bhilai Institute Of Technology ,Durg.
+         more about me here - Check my 
+        <Link  href={'https://vmartfrontend.onrender.com'}>
+          <p className='text-green-700 font-bold cursor-pointer '>Portfolio.</p>
+        </Link>
+        </p>
+        <div className="flex justify-center">
+        </div>
+      </div>
+    </div>
+  </section>
         <h1 className='text-center my-20 font-bold text-green-700 text-3xl'>Services Provided</h1>
       <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
         <div className="p-2 sm:w-1/2 w-full">
@@ -90,7 +112,9 @@ const About = () => {
       </div>
       
     </div>
-  </section></div>
+  </section>
+  
+  </div>
   )
 }
 
