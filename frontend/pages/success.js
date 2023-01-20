@@ -22,7 +22,7 @@ useEffect(() => {
 
   return (
     
-    <div>
+    <div className="min-h-screen">
       <section className="text-gray-600 body-font">
             <ToastContainer
 position="top-right"
