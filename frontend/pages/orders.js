@@ -68,6 +68,7 @@ export default Orders;
 
 export async function getServerSideProps(context) {
   let headers = { Authorization: process.env.getproductstoken };
+  // `${process.env.NEXT_PUBLIC_HOST}/api/orders?publicationState=preview&populate=*&filters[email][$contains]=${form.email}`,
   let a = await fetch(
     `${process.env.NEXT_PUBLIC_HOST}/api/orders?publicationState=preview&populate=*`,
     { headers: headers }
