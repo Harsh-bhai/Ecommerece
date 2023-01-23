@@ -45,7 +45,7 @@ theme="light"
           </h1>
           <div className=" flex justify-center align-center ">
             
-            <table className=" table border-separate border-spacing-4 rounded-lg p-4 border border-green-400   bg-green-200 ">
+            <table className=" table border-separate border-spacing-4 rounded-lg p-4 border border-green-400 text-xs md:text-base  bg-green-200 ">
               <tbody>
                 <tr>
                   <td className="border border-green-200 ">MID</td>

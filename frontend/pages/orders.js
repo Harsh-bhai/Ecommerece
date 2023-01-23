@@ -25,7 +25,7 @@ const Orders = ({ orders }) => {
           {orders.data && orders.data.map((item) => {
             
             return (
-              <div key={item} ><div  //Link here  href={'/orderdetails'}  temperory cuz paymentinfo is null 
+              <Link key={item} href={'/orderdetails'} ><div  //Link here    temperory cuz paymentinfo is null 
               
               className="flex flex-col m-2 md:m-12 shadow-green-300 shadow-lg cursor-pointer rounded-lg space-y-8 p-8 h-72 transition-transform transform hover:scale-105"
             >
@@ -55,7 +55,7 @@ const Orders = ({ orders }) => {
                 
                 </div></div>
               </div>
-            </div></div>
+            </div></Link>
             );
           })}
         </div>
