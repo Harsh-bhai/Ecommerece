@@ -32,7 +32,7 @@ const About = () => {
         </section>
        
         <section className="text-gray-600 body-font mx-40">
-  <h1 className=' my-10 font-bold text-green-700 text-3xl text-center '>Developer</h1>
+  <h1 className=' my-10 font-bold text-green-700 text-3xl text-center mx-[-53px]'>Developer</h1>
 
     <div className="container mx-auto flex px-5 py-4 md:flex-row flex-col items-center">
       <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
@@ -44,8 +44,8 @@ const About = () => {
         <h2 className='text-green-700 font-bold mb-2'>Web Developer ,Data Science </h2>
         <p className="mb-8 leading-relaxed">Hi ,I am Harsh Dewangan ,Student at Bhilai Institute Of Technology ,Durg.
          more about me here - Check my 
-        <Link  href={'https://vmartfrontend.onrender.com'}>
-          <p className='text-green-700 font-bold cursor-pointer '>Portfolio.</p>
+        <Link  href={'https://harshdewanganportfolio.netlify.app'}>
+          <a target={'_blank'} className='text-green-700 font-bold cursor-pointer '> Portfolio.</a>
         </Link>
         </p>
         <div className="flex justify-center">

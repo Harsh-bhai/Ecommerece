@@ -58,7 +58,7 @@ const Checkout = ({ subtotal,cart}) => {
       console.log("error => ",error);
       });
       }
-
+      // localStorage.setItem("form",JSON.stringify(form))
   return (
     <div className="flex flex-col mx-4 justify-center items-center my-20">
       <h1 className="text-3xl my-10 font-semibold">Checkout</h1>
