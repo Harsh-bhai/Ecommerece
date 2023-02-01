@@ -1,10 +1,44 @@
 import React from "react";
 import Link from "next/link";
+import { useEffect,useState } from "react";
+import { useRouter } from "next/router";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const Orders = ({ orders }) => {
-
+  const router=useRouter()
+  const [login, setlogin] = useState(0)
+    useEffect(() => {
+      if(!(localStorage.getItem("jwtoken"))){
+          setlogin(1)
+          toast.success('Login First', {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+          router.push('/login')
+      }
+    }, [])
+    
   return (
     <div className="min-h-screen">
+      <ToastContainer
+position="bottom-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
       { orders.data==[]? (
         <div className="flex flex-col space-y-10 justify-center items-center my-20 md:text-4xl font-bold text-sm">
           <div>No Orders Till Now</div>

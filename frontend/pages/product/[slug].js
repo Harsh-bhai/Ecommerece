@@ -1,10 +1,19 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Slug = ({ product, addtocart }) => {
+
+  const [login, setLogin] = useState(0)
+useEffect(() => {
+      if(localStorage.getItem("jwtoken"))
+        setLogin(1)
+}, [])
+
+
+
   const router = useRouter();
   const { slug } = router.query;
   const [available, setAvailable] = useState(false);
@@ -115,7 +124,7 @@ theme="light"
 
                 <div className="mb-20">
                   <div className="flex space-x-5 mt-10 ">
-                    <Link href={"/cart"}>
+                    {login?<Link href={"/cart"}>
                       <button
                         onClick={() => {
                           addtocart(
@@ -128,7 +137,20 @@ theme="light"
                       >
                         Buy Now
                       </button>
-                    </Link>
+                    </Link> : <Link href={"/login"}>
+                      <button
+                        onClick={() => {
+                          addtocart(
+                            product.attributes,
+                            1,
+                            product.attributes.price
+                          );
+                        }}
+                        className="flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded-full "
+                      >
+                        Buy Now
+                      </button>
+                    </Link>}
 
                     <button
                       onClick={() => {
