@@ -12,7 +12,7 @@ V-Mart is an Online E-commerece website used to sell groceriers ,fruits and many
 * PostgreSQL
 
 ## Some Images:
-! [Index] (./frontend/public/index.jpg)
+![Index](./frontend/public/index.jpg)
 
 
 [Link to the Project](https://vmartfrontend.onrender.com/ "V-Mart")
