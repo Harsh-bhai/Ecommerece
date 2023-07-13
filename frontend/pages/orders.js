@@ -68,8 +68,8 @@ theme="light"
                 <div className="1 w-1/3 ">
                   <img className="w-36  "
                     src={
-                      `${process.env.NEXT_PUBLIC_HOST}${item.attributes.products[0][0].image.data.attributes
-                        .url}`
+                    (process.env.NEXT_PUBLIC_HOST)+item.attributes.products[0][0].image.data.attributes
+                        .url
                     }
                     alt=""
                   />
