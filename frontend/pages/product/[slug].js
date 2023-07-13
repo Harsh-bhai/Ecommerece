@@ -80,7 +80,7 @@ theme="light"
               <img
                 alt="ecommerce"
                 className="rounded"
-                src={product.attributes.image.data.attributes.name}
+                src={`${process.env.NEXT_PUBLIC_HOST}` +product?.attributes.image.data.attributes.url }
               />
             </div>
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">

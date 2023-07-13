@@ -9,12 +9,13 @@ import { VscFeedback } from "react-icons/vsc";
 import { FaHandshake } from "react-icons/fa";
 
 import Link from "next/link";
+import Cookies from "js-cookie";
 const Navbar = ({ cart, logout }) => {
   const [login, setlogin] = useState(false);
   const [dropdown, setdropdown] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("jwtoken")) {
+    if (Cookies.get("jwtoken")) {
       setlogin(true);
     }
 

@@ -24,7 +24,7 @@ const Vegetables = ({products}) => {
                       <img
                         alt="ecommerce"
                         className="object-cover object-center h-full block"
-                        src={item.attributes.image.data && item.attributes.image.data.attributes.name}
+                        src={`${process.env.NEXT_PUBLIC_HOST}` +item?.attributes.image.data.attributes.url }
                       />
                     </a>
                     <div className="mt-4 flex flex-col justify-center items-center  ">

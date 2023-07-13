@@ -4,12 +4,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import Navbar from "../components/navbar";
-
+import cookies from "js-cookie"
 const Login = ({reloadNav}) => {
   let Router = useRouter();
   useEffect(() => {
-    if (localStorage.getItem("jwtoken")) {
+    if (cookies.get("jwtoken")) {
       Router.push("/");
       toast.success('Logged In SucessFully', {
         position: "bottom-right",
@@ -67,7 +66,8 @@ const Login = ({reloadNav}) => {
         }
         else{
           Router.push('/')
-          localStorage.setItem("jwtoken",response.jwt)
+          cookies.set("jwtoken",response.jwt)
+
           
           reloadNav()
             

@@ -170,7 +170,7 @@ export default function Home({ fruits, Dairyproducts, Groceries }) {
                           <Link key={item} href={`/product/${item.attributes.slug}`}><div className="Horizontal Scroll bar ">
                             <div className=" w-80 text-center items-center justify-center space-y-2 shadow-lg rounded-lg p-10 hover:scale-110 transiton transition-transform delay-50 hover:border-none shadow-green-300">
                               <img
-                                src={item.attributes.image.data.attributes.name}
+                                src={`${process.env.NEXT_PUBLIC_HOST}` +item?.attributes.image.data.attributes.url }
                                 alt=""
                                 className="w-60 h-60 rounded-lg"
                               />
@@ -235,7 +235,7 @@ export default function Home({ fruits, Dairyproducts, Groceries }) {
                           <Link key={item} href={`/product/${item.attributes.slug}`}><div className="Horizontal Scroll bar ">
                             <div className=" w-80 text-center items-center justify-center space-y-2 shadow-lg rounded-lg p-10 hover:scale-110 transiton transition-transform delay-50 hover:border-none shadow-green-300">
                               <img
-                                src={item.attributes.image.data.attributes.name}
+                                src={`${process.env.NEXT_PUBLIC_HOST}` +item?.attributes.image.data.attributes.url }
                                 alt=""
                                 className="w-60 h-60 rounded-lg"
                               />
@@ -300,7 +300,7 @@ export default function Home({ fruits, Dairyproducts, Groceries }) {
                           <Link key={item} href={`/product/${item.attributes.slug}`}><div className="Horizontal Scroll bar ">
                             <div className=" w-80 text-center items-center justify-center space-y-2 shadow-lg rounded-lg p-10 hover:scale-110 transiton transition-transform delay-50 hover:border-none shadow-green-300">
                               <img
-                                src={item.attributes.image.data.attributes.name}
+                                src={`${process.env.NEXT_PUBLIC_HOST}` +item?.attributes.image.data.attributes.url }
                                 alt=""
                                 className="w-60 h-60 rounded-lg"
                               />
