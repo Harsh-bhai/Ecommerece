@@ -4,13 +4,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState,useEffect } from 'react'
 import { useRouter } from 'next/router'
-
+import cookies from 'js-cookie';
 
 
 const Signup = ({reloadNav}) => {
   let Router=useRouter()
       useEffect(() => {
-        if(localStorage.getItem("jwtoken")){
+        if(cookies.get("jwtoken")){
           Router.push("/")
         }
       
@@ -48,7 +48,7 @@ const Signup = ({reloadNav}) => {
       body: JSON.stringify(data),
     })
   let response =await res.json()
-  localStorage.setItem('jwtoken',response.jwt)
+  cookies.set('jwtoken',response.jwt)
     setemail("")
     setpassword("")
     setusername("")

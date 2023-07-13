@@ -7,6 +7,7 @@ import Footer from "../components/footer";
 import Head from "next/head";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import cookies from "js-cookie"
 function MyApp({ Component, pageProps }) {
   <Head>
     <meta
@@ -16,17 +17,17 @@ function MyApp({ Component, pageProps }) {
   </Head>;
   useEffect(() => {
     try {
-      if (localStorage.getItem("cartstate")) {
-        setCart(JSON.parse(localStorage.getItem("cartstate")));
+      if (cookies.get("cartstate")) {
+        setCart(JSON.parse(cookies.get("cartstate")));
       }
-      if (localStorage.getItem("subtotal")) {
-        setSubtotal(localStorage.getItem("subtotal"));
+      if (cookies.get("subtotal")) {
+        setSubtotal(cookies.get("subtotal"));
       }
     } catch (error) {
       console.error(error);
       localStorage.clear();
     }
-    // let token=localStorage.getItem("jwtoken")
+    // let token=cookies.get("jwtoken")
     // if( token){
     //   setUser({value:token})
     // }
@@ -38,19 +39,19 @@ function MyApp({ Component, pageProps }) {
   let Router=useRouter()
   // const [user, setUser] = useState({value:null})
   const savecart = (mycart) => {
-    localStorage.setItem("cartstate", JSON.stringify(mycart));
+    cookies.set("cartstate", JSON.stringify(mycart));
     let subt = 0;
     if (mycart == []) {
       setSubtotal(subt);
 
-      localStorage.setItem("subtotal", subtotal);
+      cookies.set("subtotal", subtotal);
     } else {
       for (let i = 0; i < cart.length; i++) {
         subt = subt + mycart[i][1];
       }
       setSubtotal(subt);
 
-      localStorage.setItem("subtotal", subtotal);
+      cookies.set("subtotal", subtotal);
     }
   };
   const addtocart = (item, qty, price) => {
@@ -74,7 +75,7 @@ function MyApp({ Component, pageProps }) {
   };
   const clearcart = () => {
     setCart([]);
-    localStorage.setItem("cartstate", cart);
+    cookies.set("cartstate", cart);
     setSubtotal(0);
     // savecart([]);
   };
@@ -88,7 +89,7 @@ function MyApp({ Component, pageProps }) {
   };
 
   const logout = () => {
-    localStorage.removeItem("jwtoken");
+    cookies.remove("jwtoken");
     setReloadkey(Math.random());
     // Router.reload()
     toast.success('Logged Out', {

@@ -45,7 +45,7 @@ const Cart = ({ subtotal, cart, addtocart, removefromcart, clearcart }) => {
                   <div className="w-20">
                     <img
                       className="h-24"
-                      src={`${item[0].image.data.attributes.name}`}
+                      src={`${process.env.NEXT_PUBLIC_HOST} +${item[0].image.data.attributes.url}`}
                       alt=""
                     />
                   </div>

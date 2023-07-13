@@ -3,13 +3,14 @@ import Link from "next/link";
 import { useEffect,useState } from "react";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
+import cookies from "js-cookie";
 
 const Orders = ({ orders }) => {
   const router=useRouter()
   const [login, setlogin] = useState(0)
     useEffect(() => {
-      if(!(localStorage.getItem("jwtoken"))){
+      if(!(cookies.get("jwtoken"))){
           setlogin(1)
           toast.success('Login First', {
             position: "bottom-right",
@@ -67,8 +68,8 @@ theme="light"
                 <div className="1 w-1/3 ">
                   <img className="w-36  "
                     src={
-                      item.attributes.products[0][0].image.data.attributes
-                        .name
+                      `${process.env.NEXT_PUBLIC_HOST}${item.attributes.products[0][0].image.data.attributes
+                        .url}`
                     }
                     alt=""
                   />

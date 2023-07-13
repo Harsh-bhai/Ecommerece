@@ -24,7 +24,7 @@ const Categories = ({products}) => {
           return(
             <Link key={item.attributes.id} href={`/${item.attributes.pageurl}`}><div className="p-4 md:w-1/3 sm:mb-0 mb-6 cursor-pointer hover:scale-105 shadow-lg rounded-xl transiton transition-transform delay-50  hover:border-none">
           <div className="rounded-lg h-64 overflow-hidden">
-            <img alt="content" className="object-cover object-center h-full w-full" src={`${process.env.NEXT_PUBLIC_HOST}` +item.attributes.image.data.attributes.formats.thumbnail.url }/> 
+            <img alt="content" className="object-cover object-center h-full w-full" src={`${process.env.NEXT_PUBLIC_HOST}` +item?.attributes.image.data.attributes.url }/> 
             {/* item.attributes && item.attributes.image.data.attributes.name */}
 
           </div>

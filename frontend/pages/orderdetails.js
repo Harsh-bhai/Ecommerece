@@ -168,7 +168,7 @@ const Orderdetails = ({ orders }) => {
                     <div className="1 w-1/4 md:w-1/3 ">
                       <img
                         className="w-36  "
-                        src={item[0] && item[0].image.data.attributes.name}
+                        src={item[0] && (process.env.NEXT_PUBLIC_HOST+item[0].image.data.attributes.url)}
                         alt=""
                       />
                     </div>

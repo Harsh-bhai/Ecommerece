@@ -33,19 +33,6 @@
         "images"
       ]
     },
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "Fruits",
-        "Vegetables",
-        "Groceries",
-        "Potteries",
-        "Daily needs",
-        "Dairy"
-      ],
-      "required": true,
-      "default": "Groceries"
-    },
     "size": {
       "type": "string",
       "maxLength": 70
@@ -65,6 +52,10 @@
     },
     "descriptionmore": {
       "type": "text"
+    },
+    "category": {
+      "type": "string",
+      "required": true
     }
   }
 }
