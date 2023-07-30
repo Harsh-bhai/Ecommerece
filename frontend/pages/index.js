@@ -4,8 +4,11 @@ import Link from "next/link";
 import Script from "next/script";
 import { useRef,useState } from "react";
 import Carousel from "../components/carousel";
+import { useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-// import { useEffect } from "react";
+
 
 export default function Home({ fruits, Dairyproducts, Groceries }) {
   const refright = useRef();
@@ -14,6 +17,28 @@ export default function Home({ fruits, Dairyproducts, Groceries }) {
   const img1=useRef()
   const img2=useRef()
   const img3=useRef()
+  const [data, setData] = useState(null);
+
+const toaster = async(  ) => {
+  let databaseWorking = await toast.promise(
+    fetch(
+      `${process.env.NEXT_PUBLIC_HOST}`,
+    ),
+    {
+      pending: 'Checking Database Connection',
+      success: 'Database is Active!',
+      error: 'Sorry Database is Not Active right now!',
+    }
+  );
+  let response= await databaseWorking.json()
+  console.log(response)
+}
+
+  useEffect(() => {
+    toaster()
+    // Make the API request using Fetch API
+    
+  }, []);
 
   const toggleleft = () => {
     if (refright.current.classList.contains("md:-translate-x-1/2")) {
