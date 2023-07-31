@@ -34,11 +34,11 @@ const toaster = async(  ) => {
   console.log(response)
 }
 
-  useEffect(() => {
-    toaster()
-    // Make the API request using Fetch API
+  // useEffect(() => {
+  //   toaster()
+  //   // Make the API request using Fetch API
     
-  }, []);
+  // }, []);
 
   const toggleleft = () => {
     if (refright.current.classList.contains("md:-translate-x-1/2")) {
