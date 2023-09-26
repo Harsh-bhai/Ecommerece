@@ -4,6 +4,7 @@ const { createCoreController } = require("@strapi/strapi").factories;
 const PaytmChecksum = require("paytmchecksum");
 const https = require("https");
 
+
 module.exports = createCoreController("api::order.order", ({ strapi }) => ({
   // Method 1: Creating an entirely custom action
   async pre(ctx) {
@@ -27,8 +28,8 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
 
     paytmParams.body = {
       requestType: "Payment",
-      mid: process.env.MID,
-      websiteName: "YOUR_WEBSITE_NAME",
+      mid: process.env.NEXT_PUBLIC_MID,
+      websiteName: "WEBSTAGING",
       orderId: params.orderid,
       callbackUrl: `${process.env.NEXT_PUBLIC_HOST}/api/orders/posttransaction`,
       txnAmount: {
@@ -60,7 +61,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           hostname: "securegw-stage.paytm.in" /* for Production */, // hostname: 'securegw.paytm.in',
 
           port: 443,
-          path: `/theia/api/v1/initiateTransaction?mid=${process.env.MID}&orderId=${params.orderid}`,
+          path: `/theia/api/v1/initiateTransaction?mid=${process.env.NEXT_PUBLIC_MID}&orderId=${params.orderid}`,
           method: "POST",
           headers: {
             "Content-Type": "application/json",

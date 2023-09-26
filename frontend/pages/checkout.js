@@ -1,5 +1,6 @@
 import Script from "next/script";
 import React, { useState,useEffect } from "react";
+import Cookies from "js-cookie";
 
 const Checkout = ({ subtotal,cart}) => {
   const [form, setForm] = useState({
@@ -25,11 +26,12 @@ const Checkout = ({ subtotal,cart}) => {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
-        // Authorization: `Bearer ${localStorage.getItem("jwtoken")}`,   
+        // Authorization: `Bearer ${Cookies.get("jwtoken")}`,   
          },
       body: JSON.stringify(data),
     });
     let content = await a.json();
+    console.log(content,"content")
 
     var config = {
       'root': "",
